@@ -5,33 +5,59 @@
 
 @layer base {
   :root {
-    --background: 233 26% 15%; /* Dark purple background */
-    --foreground: 0 0% 100%; /* White text */
-    --card: 233 26% 25%; /* Slightly lighter purple for cards */
-    --card-foreground: 0 0% 100%; /* White text on cards */
-    --popover: 233 26% 25%; /* Same as card for consistency */
-    --popover-foreground: 0 0% 100%; /* White text */
-    --primary: 0 0% 100%; /* White, to stand out on dark background */
-    --primary-foreground: 233 26% 15%; /* Dark purple text */
-    --secondary: 250 25% 20%; /* Muted light purple */
-    --secondary-foreground: 0 0% 100%; /* White text */
-    --muted: 233 26% 35%; /* Muted purple for less emphasis */
-    --muted-foreground: 0 0% 100%; /* White text */
-    --accent: 50 60% 50%; /* Gold accent for emphasis */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
-    --destructive: 0 100% 50%; /* Bright red for destructive actions */
-    --destructive-foreground: 0 0% 100%; /* White text */
-    --border: 233 26% 20%; /* Darker purple for borders */
-    --input: 233 26% 20%; /* Same as border for input backgrounds */
-    --ring: 50 100% 50%; /* Gold for focus rings */
+    --background: 0 0% 100%; /* Dark purple background */
+    --foreground: 222.2 84% 4.9%; /* White text */
+    --card: 0 0% 100%; /* Slightly lighter purple for cards */
+    --card-foreground: 222.2 84% 4.9%; /* White text on cards */
+    --popover: 0 0% 100%; /* Same as card for consistency */
+    --popover-foreground: 222.2 84% 4.9%; /* White text */
+    --primary: 222.2 47.4% 11.2%; /* White, to stand out on dark background */
+    --primary-foreground: 210 40% 98%; /* Dark purple text */
+    --secondary: 210 40% 96.1%; /* Muted light purple */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* White text */
+    --muted: 210 40% 96.1%; /* Muted purple for less emphasis */
+    --muted-foreground: 215.4 16.3% 46.9%; /* White text */
+    --accent: 210 40% 96.1%; /* Gold accent for emphasis */
+    --accent-foreground: 222.2 47.4% 11.2%; /* White text on accent */
+    --destructive: 0 84.2% 60.2%; /* Bright red for destructive actions */
+    --destructive-foreground: 210 40% 98%; /* White text */
+    --border: 214.3 31.8% 91.4%; /* Darker purple for borders */
+    --input: 214.3 31.8% 91.4%; /* Same as border for input backgrounds */
+    --ring: 222.2 84% 4.9%; /* Gold for focus rings */
     --radius: 0.5rem;
 
     /* Chart colors inspired by your logo's vibe */
-    --chart-1: 255 100% 50%; /* Bright orange */
-    --chart-2: 50 100% 50%; /* Bright yellow */
-    --chart-3: 170 50% 40%; /* Cool teal */
-    --chart-4: 290 70% 60%; /* Vivid purple */
-    --chart-5: 340 70% 60%; /* Bright pink */
+    --chart-1: 12 76% 61%; /* Bright orange */
+    --chart-2: 173 58% 39%; /* Bright yellow */
+    --chart-3: 197 37% 24%; /* Cool teal */
+    --chart-4: 43 74% 66%; /* Vivid purple */
+    --chart-5: 27 87% 67%; /* Bright pink */
+  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%
   }
   }
   
@@ -44,4 +70,13 @@
       @apply scroll-smooth bg-background text-foreground;
     }
   }
+  
+  @layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
   
