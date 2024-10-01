@@ -5,6 +5,7 @@ import Footer from "~/components/footer";
 import FeaturesSection from "~/components/sections/featuresSection";
 import TestimonialsSection from "~/components/sections/testimonialsSection";
 import ServicesSection from "~/components/sections/servicesSection";
+import HeroSection from "~/components/sections/heroSection";
 
 export default function LandingPage() {
   return (
@@ -12,19 +13,12 @@ export default function LandingPage() {
       <Navbar />
 
       <main>
-        <section className="bg-[url('/placeholder.svg?height=400&width=800')] bg-cover bg-center py-20 text-center">
-          <div className="container mx-auto px-4 lg:px-6">
-            <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-              Welcome to Gemini Academy
-            </h1>
-            <p className="mb-8 text-xl">Unlock Your Potential in the Stars</p>
-            <Button className="bg-gold text-darkPurple hover:bg-gold/90 px-8 py-3 text-lg">
-              Start Your Journey
-            </Button>
-          </div>
+        <section className="bg-[url('/placeholder.svg?height=400&width=800')] bg-cover bg-center text-center">
+          <HeroSection />
         </section>
 
-        <section className="py-10">
+
+        <section className="relative py-20 bg-gradient-to-b from-darkPurple to-purple">
           <FeaturesSection />
         </section>
 
@@ -36,7 +30,7 @@ export default function LandingPage() {
           <ServicesSection />
         </section>
 
-        <section className="bg-purple py-16">
+        <section className="bg-gradient-to-b from-purple to-darkPurple py-16"> 
           <div className="container mx-auto px-4 text-center">
             <h2 className="mb-8 text-3xl font-bold">Ready to Join?</h2>
             <p className="mb-8 text-xl">

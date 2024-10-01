@@ -14,7 +14,7 @@ export default function Footer() {
               height={40}
               className="mb-2 rounded-full"
             />
-            <span className="px-2">&copy; 2023 Gemini Academy. All rights reserved.</span>
+            <span className="px-2">&copy; 2024 Gemini Academy. All rights reserved.</span>
           </div>
           <div className="flex space-x-4">
             <Link href="#" className="hover:text-gold">
