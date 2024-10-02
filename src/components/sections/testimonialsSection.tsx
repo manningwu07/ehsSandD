@@ -1,35 +1,172 @@
-import TestimonialCard from "../cards/testimonialCard";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star } from "lucide-react";
+import ShootingStarTrail from "../ui/shootingStarTrail";
+import exp from "constants";
 
-const testimonials = [
+interface Testimonial {
+  id: number;
+  rating: number;
+  quote: string;
+  author: string;
+}
+
+const testimonials: Testimonial[] = [
   {
-    testimonial: "Testing testing testing",
-    author: "Tester",
-    rating: 4,
+    id: 1,
+    rating: 5,
+    quote: "Gemini Academy transformed my understanding of astronomy!",
+    author: "Alex S.",
   },
   {
-    testimonial: "Testing testing testing",
-    author: "Tester",
+    id: 2,
     rating: 4,
+    quote: "The community here is incredibly supportive and knowledgeable.",
+    author: "Jamie L.",
   },
   {
-    testimonial: "Testing testing testing",
-    author: "Tester",
-    rating: 4,
+    id: 3,
+    rating: 5,
+    quote: "I never thought learning could be this engaging and fun!",
+    author: "Sam T.",
   },
 ];
 
+const generateQuadraticKeyframes = (steps: number): string[] => {
+  const keyframes = [];
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    const y = 200 * (t * t);
+    keyframes.push(`${y}%`);
+  }
+  return keyframes;
+};
 
-export default function TestimonialsSection() {
+const AnimatedTestimonials: React.FC = () => {
+  const [currentTestimonial, setCurrentTestimonial] =
+    useState<Testimonial | null>(null);
+  const [starIsAnimating, setStarIsAnimating] = useState(false);
+  const [fromLeft, setFromLeft] = useState(true);
+
+  useEffect(() => {
+    const animateNextTestimonial = () => {
+      setStarIsAnimating(true);
+      setTimeout(() => {
+        setStarIsAnimating(false);
+        const nextTestimonial =
+          testimonials[Math.floor(Math.random() * testimonials.length)];
+        setCurrentTestimonial(nextTestimonial!);
+        setFromLeft((prevFromLeft) => !prevFromLeft);
+      }, 2000); // Adjust testimonial exposure duration as needed
+    };
+
+    const interval = setInterval(animateNextTestimonial, 5500); // Adjust cycle duration as needed
+    return () => clearInterval(interval);
+  }, []);
+
+  const steps = 20;
+  const yKeyframes = generateQuadraticKeyframes(steps);
+
   return (
-    <div className="container mx-auto px-4 md:px-5 lg:px-6">
-      <h2 className="mb-8 text-center text-3xl font-bold">
+    <div className="relative min-h-screen overflow-hidden bg-purple">
+      <h2 className="py-16 text-center text-4xl font-bold text-white">
         What Our Students Say
       </h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
-        {testimonials.map((testimonial, index) => (
-          <TestimonialCard key={index} {...testimonial} />
-        ))}
-      </div>
+      {/* Star trail animation */}
+      <AnimatePresence>
+        {starIsAnimating && (
+          <div className="relative mt-10 flex w-screen items-center justify-center">
+            <motion.div
+              key="shooting-star"
+              className="absolute"
+              initial={{
+                x: fromLeft ? "-100vw" : "100vw",
+                y: "0%",
+                opacity: 0,
+                scale: 0.5,
+              }}
+              animate={{
+                x: fromLeft ? "-5vw" : "5vw",
+                y: yKeyframes,
+                opacity: [0, 1],
+                scale: [0.5, 0.5, 1, 1.5, 2],
+              }}
+              transition={{
+                duration: 2,
+                y: {
+                  duration: 2,
+                  ease: "easeInOut",
+                  times: Array.from(
+                    { length: steps },
+                    (_, i) => i / (steps - 1),
+                  ),
+                },
+                opacity: {
+                  duration: 2,
+                  times: [0, 1],
+                },
+                scale: {
+                  duration: 2, // Scale over the entire duration
+                  ease: "easeInOut",
+                  times: [0, 0.25, 0.5, 0.75, 1], // Time intervals for each scale value
+                },
+              }}
+            >
+              <div className="flex items-center">
+                {fromLeft && <ShootingStarTrail fromLeft={fromLeft} />}
+                <Star
+                  className="h-8 w-8 text-white"
+                  fill="white"
+                  stroke="none"
+                  style={{
+                    marginLeft: fromLeft ? "-28px" : "auto",
+                    marginRight: fromLeft ? "auto" : "-28px",
+                    zIndex: 10,
+                  }}
+                />
+                {!fromLeft && <ShootingStarTrail fromLeft={fromLeft} />}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Testominal card */}
+      <AnimatePresence>
+        {currentTestimonial && !starIsAnimating && (
+          <motion.div
+            key={currentTestimonial.id}
+            className="mx-auto max-w-md rounded-lg bg-darkPurple p-6 shadow-lg"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ type: "fade", duration: 0.5 }}
+          >
+            {/* Inner white box that fades out */}
+            <motion.div
+              className="absolute inset-0 rounded-lg bg-white"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            />
+            <div className="mb-4 flex">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className={`h-5 w-5 ${i < currentTestimonial.rating ? "fill-gold text-gold" : "text-gray-400"}`}
+                />
+              ))}
+            </div>
+            <p className="mb-4 text-white">"{currentTestimonial.quote}"</p>
+            <p className="font-semibold text-gold">
+              - {currentTestimonial.author}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
-}
+};
+
+export default AnimatedTestimonials;
