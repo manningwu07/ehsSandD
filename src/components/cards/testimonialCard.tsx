@@ -43,8 +43,8 @@ export default function TestimonialCard({
   rating,
 }: TestimonialCardProps) {
   return (
-    <div className="rounded-lg bg-darkPurple border border-gold p-8">
-      <div className="mb-4 flex items-center">
+    <>
+      <div className="flex">
         {/* Dynamically fill rating */}
         {Array.from({ length: rating }, (_, i) => (
           <FilledStar key={i} />
@@ -53,8 +53,8 @@ export default function TestimonialCard({
           <Star key={i} />
         ))}
       </div>
-      <p className="mb-4 text-lg">{`"${testimonial}"`}</p>
-      <p className="font-semibold">{`- ${author}`}</p>
-    </div>
+      <p className="my-2 text-white text-lg">{`"${testimonial}"`}</p>
+      <p className="text-gold font-semibold">{`- ${author}`}</p>
+    </>
   );
 }

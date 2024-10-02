@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star } from "lucide-react";
 import ShootingStarTrail from "../ui/shootingStarTrail";
-import exp from "constants";
+import TestimonialCard from "../cards/testimonialCard";
+import testimonialsJSON from "~/controlContentHere/testimonials.json";
 
 interface Testimonial {
   id: number;
@@ -11,26 +12,7 @@ interface Testimonial {
   author: string;
 }
 
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    rating: 5,
-    quote: "Gemini Academy transformed my understanding of astronomy!",
-    author: "Alex S.",
-  },
-  {
-    id: 2,
-    rating: 4,
-    quote: "The community here is incredibly supportive and knowledgeable.",
-    author: "Jamie L.",
-  },
-  {
-    id: 3,
-    rating: 5,
-    quote: "I never thought learning could be this engaging and fun!",
-    author: "Sam T.",
-  },
-];
+const testimonials: Testimonial[] = testimonialsJSON.testimonials; 
 
 const generateQuadraticKeyframes = (steps: number): string[] => {
   const keyframes = [];
@@ -68,7 +50,7 @@ const AnimatedTestimonials: React.FC = () => {
   const yKeyframes = generateQuadraticKeyframes(steps);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-purple">
+    <div className="min-h-96 bg-purple">
       <h2 className="py-16 text-center text-4xl font-bold text-white">
         What Our Students Say
       </h2>
@@ -136,7 +118,7 @@ const AnimatedTestimonials: React.FC = () => {
         {currentTestimonial && !starIsAnimating && (
           <motion.div
             key={currentTestimonial.id}
-            className="mx-auto max-w-md rounded-lg bg-darkPurple p-6 shadow-lg"
+            className="mx-auto max-w-md rounded-lg border border-gold p-6 shadow-lg"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
@@ -150,18 +132,11 @@ const AnimatedTestimonials: React.FC = () => {
               exit={{ opacity: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             />
-            <div className="mb-4 flex">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`h-5 w-5 ${i < currentTestimonial.rating ? "fill-gold text-gold" : "text-gray-400"}`}
-                />
-              ))}
-            </div>
-            <p className="mb-4 text-white">"{currentTestimonial.quote}"</p>
-            <p className="font-semibold text-gold">
-              - {currentTestimonial.author}
-            </p>
+            <TestimonialCard
+              testimonial={currentTestimonial.quote}
+              author={currentTestimonial.author}
+              rating={currentTestimonial.rating}
+            />
           </motion.div>
         )}
       </AnimatePresence>

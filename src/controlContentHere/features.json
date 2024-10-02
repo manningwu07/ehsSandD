@@ -1,0 +1,22 @@
+{
+  "_pleaseRead": "For icons, go on Lucide-React for the icons you need",
+  "_pleaseRead_": "and import them in featuresSection.tsx or contact owner",
+  "features": [
+    {
+      "Icon": "GraduationCap",
+      "header": "Expert Education",
+      "content": "Learn from industry professionals and experienced educators."
+    },
+    {
+      "Icon": "Users",
+      "header": "Community",
+      "content": "Join a supportive network of like-minded individuals."
+    },
+    {
+      "Icon": "BookOpen",
+      "header": "Diverse Courses",
+      "content": "Explore a wide range of subjects tailored to your interests."
+    }
+  ]
+}
+

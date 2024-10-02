@@ -1,0 +1,23 @@
+{
+    "testimonials": [
+      {
+        "id": 1,
+        "rating": 5,
+        "quote": "Gemini Academy transformed my understanding of astronomy!",
+        "author": "Alex S."
+      },
+      {
+        "id": 2,
+        "rating": 4,
+        "quote": "The community here is incredibly supportive and knowledgeable.",
+        "author": "Jamie L."
+      },
+      {
+        "id": 3,
+        "rating": 5,
+        "quote": "I never thought learning could be this engaging and fun!",
+        "author": "Sam T."
+      }
+    ]
+}
+  

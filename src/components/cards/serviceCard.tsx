@@ -12,7 +12,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ name, price, description, features }: ServiceCardProps) {
   return (
-    <Card className="bg-darkPurple border border-gold text-white overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-gold/20">
+    <Card className="bg-darkPurple text-white overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-gold/20">
       <CardHeader className="p-4">
         <CardTitle className="text-2xl font-bold text-center">{name}</CardTitle>
       </CardHeader>

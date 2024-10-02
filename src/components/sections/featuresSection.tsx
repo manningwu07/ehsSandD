@@ -1,24 +1,16 @@
 import React, { useEffect, useRef } from "react";
-import { GraduationCap, Users, BookOpen } from "lucide-react";
+import { GraduationCap, Users, BookOpen } from "lucide-react"; 
+// In features.json, make sure to import the icons you need from lucide-react here
 import FeatureCard from "../cards/featureCard";
+import featuresJSON from "~/controlContentHere/features.json";
 
-const features = [
-  {
-    Icon: GraduationCap,
-    header: "Expert Education",
-    content: "Learn from industry professionals and experienced educators.",
-  },
-  {
-    Icon: Users,
-    header: "Community",
-    content: "Join a supportive network of like-minded individuals.",
-  },
-  {
-    Icon: BookOpen,
-    header: "Diverse Courses",
-    content: "Explore a wide range of subjects tailored to your interests.",
-  },
-];
+interface Feature {
+  Icon: string; 
+  header: string;   
+  content: string;  
+}
+
+const features: Feature[] = featuresJSON.features;
 
 const FeaturesSection: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -63,7 +55,7 @@ const FeaturesSection: React.FC = () => {
       }
 
       draw() {
-        ctx!.fillStyle = "rgba(255, 215, 0, 0.8)";
+        ctx!.fillStyle = "rgba(255, 255, 255, 0.8)";
         ctx!.beginPath();
         ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx!.fill();
@@ -125,7 +117,7 @@ const FeaturesSection: React.FC = () => {
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
 
       <svg
-        className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full lg:block"
+        className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full md:block"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1000 800" // Added viewBox to ensure scaling across different devices
       >
@@ -171,12 +163,12 @@ const FeaturesSection: React.FC = () => {
         </linearGradient>
       </svg>
 
-      <div className="relative flex flex-col items-center justify-center gap-12 px-4 lg:flex-row lg:items-start lg:gap-20 lg:px-20">
+      <div className="relative flex flex-col items-center justify-center gap-12 px-4 md:flex-row md:items-start md:gap-5 lg:gap-20 md:px-10 lg:px-20">
         <FeatureCard
           Icon={GraduationCap}
           header={features[0]!.header}
           content={features[0]!.content}
-          className="lg:mt-96"
+          className="md:mt-96"
         />
         <FeatureCard
           Icon={Users}
@@ -188,7 +180,7 @@ const FeaturesSection: React.FC = () => {
           Icon={BookOpen}
           header={features[2]!.header}
           content={features[2]!.content}
-          className="lg:mt-96"
+          className="md:mt-96"
         />
       </div>
     </>

@@ -22,11 +22,11 @@ export default function LandingPage() {
           <FeaturesSection />
         </section>
 
-        <section className="py-10">
+        <section className="pt-10">
           <TestimonialsSection />
         </section>
 
-        <section className="py-10">
+        <section className="pb-16 bg-purple">
           <ServicesSection />
         </section>
 
