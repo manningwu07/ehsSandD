@@ -3,53 +3,25 @@
 @tailwind utilities;
 
 @keyframes twinkle {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
+  0%,
+  100% {
+    opacity: 1;
   }
-  
-  .parallax-stars {
-    background-image: radial-gradient(2px at 20% 20%, #fff, transparent),
-      radial-gradient(2px at 80% 30%, #ffd700, transparent),
-      radial-gradient(2px at 30% 70%, #fff, transparent),
-      radial-gradient(2px at 60% 50%, #ffd700, transparent),
-      radial-gradient(2px at 90% 80%, #fff, transparent),
-      radial-gradient(2px at 10% 90%, #ffd700, transparent),
-      radial-gradient(2px at 40% 10%, #fff, transparent);
-    background-size: 200px 200px;
-    animation: twinkle 5s infinite ease-in-out;
+  50% {
+    opacity: 0.5;
   }
-  
-  .parallax-stars::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: radial-gradient(2px at 15% 15%, #ffd700, transparent),
-      radial-gradient(2px at 75% 25%, #fff, transparent),
-      radial-gradient(2px at 25% 85%, #ffd700, transparent),
-      radial-gradient(2px at 65% 65%, #fff, transparent),
-      radial-gradient(2px at 95% 95%, #ffd700, transparent),
-      radial-gradient(2px at 35% 35%, #fff, transparent);
-    background-size: 300px 300px;
-    animation: twinkle 6s infinite ease-in-out;
-    opacity: 0.6;
-    z-index: -1;
-  }
-  
-  /* Parallax effect */
-  .parallax-layer {
-    transform: translateY(-50%);
-    will-change: transform;
-  }
-  
-  .parallax-move {
-    transform: translateY(0);
-  }
-  
-  
+}
+
+.parallax-stars {
+  background-image: radial-gradient(1px at 20% 20%, #fff, transparent),
+    radial-gradient(3px at 30% 70%, #fff, transparent),
+    radial-gradient(2px at 80% 30%, gold, transparent),
+    radial-gradient(2px at 60% 50%, #fff, transparent),
+    radial-gradient(1px at 90% 80%, #fff, transparent),
+    radial-gradient(2px at 10% 90%, gold, transparent),
+    radial-gradient(3px at 40% 10%, #fff, transparent),
+    radial-gradient(1px at 65% 65%, #fff, transparent),
+    radial-gradient(2px at 95% 95%, gold, transparent);
+  background-size: 200px 200px;
+  animation: twinkle 2s infinite ease-in-out;
+}

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star } from "lucide-react";
 import ShootingStarTrail from "../ui/shootingStarTrail";
 import TestimonialCard from "../cards/testimonialCard";
-import testimonialsJSON from "~/controlContentHere/testimonials.json";
+import testimonialsJSON from "~/controlContentHere/landingPage/testimonials.json";
 
 interface Testimonial {
   id: number;

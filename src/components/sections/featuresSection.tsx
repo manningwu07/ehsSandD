@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { GraduationCap, Users, BookOpen } from "lucide-react"; 
 // In features.json, make sure to import the icons you need from lucide-react here
 import FeatureCard from "../cards/featureCard";
-import featuresJSON from "~/controlContentHere/features.json";
+import featuresJSON from "~/controlContentHere/landingPage/features.json";
 
 interface Feature {
   Icon: string; 

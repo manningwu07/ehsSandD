@@ -1,5 +1,5 @@
 import ServiceCard from "../cards/serviceCard";
-import servicesJSON from "~/controlContentHere/services.json";
+import servicesJSON from "~/controlContentHere/landingPage/services.json";
 
 interface Service {
   name: string
@@ -16,7 +16,7 @@ export default function ServicesSection() {
       <h2 className="mb-12 text-center text-3xl font-bold text-white">
         Our Services
       </h2>
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 sm:mx-4 md:w-[80%] md:mx-auto lg:w-full lg:grid-cols-3">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
         ))}

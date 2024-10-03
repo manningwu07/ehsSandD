@@ -17,7 +17,6 @@ export default function LandingPage() {
           <HeroSection />
         </section>
 
-
         <section className="relative py-20 bg-gradient-to-b from-darkPurple to-purple">
           <FeaturesSection />
         </section>
