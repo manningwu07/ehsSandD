@@ -1,0 +1,39 @@
+{
+  "comment": "**PLEASE READ - FOR IMAGES, PLEASE DROP THE IMAGE IN THE public/oppurtunities",
+  "comment_": "FOLDER AND USE '/oppurtunities/[filename].[type]' AS THE IMAGE URL IN THE JSON FILE**",
+
+  "featured_oppurtunities": [
+    {
+      "imageUrl": "/placeholder.svg",
+      "title": "UC Berkeley AstroNight",
+      "description": "Connect with UC Berkeley students and explore the night sky."
+    },
+    {
+      "imageUrl": "/placeholder.svg",
+      "title": "Stargazing Tours",
+      "description": "Experience the beauty of the night sky through guided tours."
+    },
+    {
+      "imageUrl": "/placeholder.svg",
+      "title": "Astronomy and Astrophysics Presentations",
+      "description": "Listen to other students nerd out on astronomy and astrophysics together"
+    }
+  ],
+  "other_oppurtunities": [
+    {
+      "imageUrl": "/placeholder.svg",
+      "title": "Online Courses",
+      "description": "Enroll in online courses and access a wealth of knowledge."
+    },
+    {
+      "imageUrl": "/placeholder.svg",
+      "title": "Virtual Tours",
+      "description": "Discover the wonders of the universe through virtual tours."
+    },
+    {
+      "imageUrl": "/placeholder.svg",
+      "title": "Online Events",
+      "description": "Join virtual events and engage with like-minded individuals."
+    }
+  ]
+}

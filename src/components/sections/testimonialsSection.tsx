@@ -7,7 +7,6 @@ import testimonialsJSON from "~/controlContentHere/landingPage/testimonials.json
 
 interface Testimonial {
   id: number;
-  rating: number;
   quote: string;
   author: string;
 }
@@ -18,7 +17,7 @@ const generateQuadraticKeyframes = (steps: number): string[] => {
   const keyframes = [];
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
-    const y = 200 * (t * t);
+    const y = 150 * (t * t);
     keyframes.push(`${y}%`);
   }
   return keyframes;
@@ -52,7 +51,7 @@ const AnimatedTestimonials: React.FC = () => {
   return (
     <div className="min-h-96 bg-purple">
       <h2 className="py-16 text-center text-4xl font-bold text-white">
-        What Our Students Say
+        Our Club Member&apos;s Opinions
       </h2>
       {/* Star trail animation */}
       <AnimatePresence>
@@ -135,7 +134,6 @@ const AnimatedTestimonials: React.FC = () => {
             <TestimonialCard
               testimonial={currentTestimonial.quote}
               author={currentTestimonial.author}
-              rating={currentTestimonial.rating}
             />
           </motion.div>
         )}

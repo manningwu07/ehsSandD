@@ -9,22 +9,22 @@ export default function Navbar() {
         <Link href="/" className="flex items-center space-x-2">
           <Image
             src="/logo.jpg"
-            alt="Gemini Academy Logo"
+            alt="AstroGaels"
             width={40}
             height={40}
             className="rounded-full"
           />
-          <span className="text-xl font-bold">Gemini Academy</span>
+          <span className="text-xl font-bold">AstroGaels</span>
         </Link>
         <nav className="hidden items-center space-x-4 md:flex">
           <Link
-            href="/about"
+            href="/opportunities"
             className="transition-colors hover:text-gold"
           >
-            About Us
+            Oppurtunities
           </Link>
-          <Link href="/team" className="transition-colors hover:text-gold">
-            The Team
+          <Link href="/about" className="transition-colors hover:text-gold">
+            About Us
           </Link>
           <Link
             href="/classes"
@@ -32,9 +32,12 @@ export default function Navbar() {
           >
             Classes
           </Link>
-          <Button className="bg-gold text-darkPurple hover:bg-gold/90">
-            Join Us
-          </Button>
+          <Link 
+          href = "https://discord.gg/tB99sbbxWA"  
+          target="_blank"
+          className="px-1.5 py-0.5 rounded-md bg-gold text-darkPurple hover:bg-gold/90">
+            Join Our Discord
+          </Link>
         </nav>
       </div>
     </header>

@@ -4,10 +4,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Gemini Academy</title>
+        <title>AstroGaels</title>
         <meta
           name="description"
-          content="A program to introduce speech and debate to teenagers."
+          content="Dublin High School Astronomy Club"
         />
         <link rel="icon" href="/logo.jpg" />
       </Head>

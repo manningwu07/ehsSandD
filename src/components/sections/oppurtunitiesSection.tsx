@@ -1,18 +1,19 @@
 import React, { useEffect, useRef } from "react";
-import { GraduationCap, Users, BookOpen } from "lucide-react"; 
-// In features.json, make sure to import the icons you need from lucide-react here
-import FeatureCard from "../cards/featureCard";
-import featuresJSON from "~/controlContentHere/landingPage/features.json";
+import { GraduationCap, Users, BookOpen } from "lucide-react";
+// In oppurtunities.json, make sure to import the icons you need from lucide-react here
 
-interface Feature {
-  Icon: string; 
-  header: string;   
-  content: string;  
+import oppurtunitiesJSON from "~/controlContentHere/landingPage/oppurtunities.json";
+import OppurtunityCard from "../cards/oppurtunityCard";
+
+interface oppurtunity {
+  imageUrl?: string;
+  title: string;
+  description: string;
 }
 
-const features: Feature[] = featuresJSON.features;
+const oppurtunities: oppurtunity[] = oppurtunitiesJSON.featured_oppurtunities;
 
-const FeaturesSection: React.FC = () => {
+const oppurtunitiesSection: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -111,7 +112,7 @@ const FeaturesSection: React.FC = () => {
   return (
     <>
       <h2 className="mb-12 text-center text-4xl font-bold text-white">
-        What We Offer
+        Hot Opportunities
       </h2>
 
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
@@ -119,7 +120,7 @@ const FeaturesSection: React.FC = () => {
       <svg
         className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full md:block"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1000 800" // Added viewBox to ensure scaling across different devices
+        viewBox="0 0 1000 800"
       >
         <defs>
           <filter id="glow">
@@ -131,9 +132,9 @@ const FeaturesSection: React.FC = () => {
           </filter>
         </defs>
 
-        {/* Constellation lines connecting the feature cards */}
+        {/* Constellation lines connecting the oppurtunity cards */}
         <path
-          d="M500,200 L250,600 L750,600 Z" // Now using absolute pixel values, assuming a 1000x800 viewBox
+          d="M500,200 L250,600 L750,600 Z"
           fill="none"
           stroke="url(#goldGradient)"
           strokeWidth="2"
@@ -163,23 +164,23 @@ const FeaturesSection: React.FC = () => {
         </linearGradient>
       </svg>
 
-      <div className="relative flex flex-col items-center justify-center gap-12 px-4 md:flex-row md:items-start md:gap-5 lg:gap-20 md:px-10 lg:px-20">
-        <FeatureCard
-          Icon={GraduationCap}
-          header={features[0]!.header}
-          content={features[0]!.content}
+      <div className="relative flex flex-col items-center justify-center gap-12 md:flex-row md:items-start md:gap-2 md:px-5 lg:gap-5 lg:px-10">
+        <OppurtunityCard
+          imageUrl="/placeholder.svg"
+          title={oppurtunities[0]!.title}
+          description={oppurtunities[0]!.description}
           className="md:mt-96"
         />
-        <FeatureCard
-          Icon={Users}
-          header={features[1]!.header}
-          content={features[1]!.content}
+        <OppurtunityCard
+          imageUrl="/placeholder.svg"
+          title={oppurtunities[1]!.title}
+          description={oppurtunities[1]!.description}
           className="z-10"
         />
-        <FeatureCard
-          Icon={BookOpen}
-          header={features[2]!.header}
-          content={features[2]!.content}
+        <OppurtunityCard
+          imageUrl="/placeholder.svg"
+          title={oppurtunities[2]!.title}
+          description={oppurtunities[2]!.description}
           className="md:mt-96"
         />
       </div>
@@ -187,4 +188,4 @@ const FeaturesSection: React.FC = () => {
   );
 };
 
-export default FeaturesSection;
+export default oppurtunitiesSection;

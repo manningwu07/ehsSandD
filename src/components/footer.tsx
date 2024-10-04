@@ -9,23 +9,15 @@ export default function Footer() {
           <div className="mb-4 md:mb-0 flex items-center">
             <Image
               src="/logo.jpg"
-              alt="Gemini Academy Logo"
+              alt="AstroGaels Logo"
               width={40}
               height={40}
               className="mb-2 rounded-full"
             />
-            <span className="px-2">&copy; 2024 Gemini Academy. All rights reserved.</span>
+            <span className="px-2">&copy; 2024 AstroGaels. All rights reserved.</span>
           </div>
           <div className="flex space-x-4">
-            <Link href="#" className="hover:text-gold">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-gold">
-              Terms of Service
-            </Link>
-            <Link href="#" className="hover:text-gold">
-              Contact Us
-            </Link>
+            <span className="px-2"> Made by Manning Wu (Class of 2025)</span>
           </div>
         </div>
       </div>
