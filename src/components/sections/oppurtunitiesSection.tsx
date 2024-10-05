@@ -169,7 +169,7 @@ const oppurtunitiesSection: React.FC = () => {
           imageUrl="/placeholder.svg"
           title={oppurtunities[0]!.title}
           description={oppurtunities[0]!.description}
-          className="md:mt-96"
+          className="md:mt-96 lg:mt-[500px] 2xl:mt-[650px]"
         />
         <OppurtunityCard
           imageUrl="/placeholder.svg"
@@ -181,7 +181,7 @@ const oppurtunitiesSection: React.FC = () => {
           imageUrl="/placeholder.svg"
           title={oppurtunities[2]!.title}
           description={oppurtunities[2]!.description}
-          className="md:mt-96"
+          className="md:mt-96 lg:mt-[500px] 2xl:mt-[650px]"
         />
       </div>
     </>

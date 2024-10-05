@@ -29,7 +29,7 @@ export default function OpportunityCard({
 
   return (
     <Card
-      className={`w-full max-w-sm overflow-hidden bg-darkPurple text-white transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg ${className}`}
+      className={`w-full max-w-sm md:max-w-2xl overflow-hidden bg-darkPurple text-white transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg ${className}`}
     >
       {imageUrl && (
         <div className="relative h-48 w-full">
@@ -37,10 +37,12 @@ export default function OpportunityCard({
         </div>
       )}
       <CardContent className="p-4">
-        <h3 className="mb-2 text-xl font-semibold text-gold">{title}</h3>
+        <h3 className="mb-2 text-lg md:text-xl lg:text-2xl font-semibold text-gold">
+          {title}
+        </h3>
         <div className="relative">
           <p
-            className={`text-sm ${isExpanded ? "" : "line-clamp-4"} md:line-clamp-none`}
+            className={`text-sm md:text-lg  ${isExpanded ? "" : "line-clamp-4"}`}
           >
             {description}
           </p>
