@@ -7,6 +7,7 @@ import { Button } from "~/components/ui/button";
 import { Telescope, Users, GraduationCap, Calendar } from "lucide-react";
 import Navbar from "~/components/navbar";
 import Footer from "~/components/footer";
+import TheTeam from "~/components/sections/theTeam";
 
 interface FeatureProps {
   Icon: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -62,6 +63,13 @@ export default function AboutUsPage() {
           </div>
         </div>
 
+        <TheTeam />
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        
         <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <Features
             Icon={Telescope}

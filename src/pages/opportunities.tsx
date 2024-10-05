@@ -23,11 +23,11 @@ const getMarginClass = (index: number) => {
     case 0:
       return "mt-0";
     case 1:
-      return "mt-12";
+      return "md:mt-12";
     case 2:
-      return "mt-24";
+      return "md:mt-24";
     case 3:
-      return "mt-36";
+      return "md:mt-36";
     default:
       return "mt-0";
   }
@@ -156,7 +156,7 @@ export default function OpportunitiesPage() {
     opportunityCards.push(
       <div
         key={`row-${i}`}
-        className="flex items-center justify-center gap-8 md:gap-10 lg:gap-12"
+        className="flex flex-col md:flex-row md:items-start md:justify-center gap-8 md:gap-10 lg:gap-12 py-4"
       >
         {cardsInRow}
       </div>,
@@ -174,11 +174,11 @@ export default function OpportunitiesPage() {
           Astronomy Club Opportunities
         </h1>
 
-        <div className="mb-16">
+        <div className="mb-8 md:mb-16">
           <h2 className="mb-8 flex justify-center text-3xl font-semibold text-white md:text-4xl">
             Featured Opportunities
           </h2>
-          <div className="flex items-start justify-center gap-8 md:gap-10 lg:gap-12">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-center gap-8 md:gap-10 lg:gap-12">
             {featuredOpportunities.map((opportunity, index) => (
               <OpportunityCard
                 key={index}

@@ -29,7 +29,7 @@ export default function OpportunityCard({
 
   return (
     <Card
-      className={`w-full max-w-sm md:max-w-2xl overflow-hidden bg-darkPurple text-white transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg ${className}`}
+      className={`w-full max-w-md md:max-w-2xl overflow-hidden bg-darkPurple text-white transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg ${className}`}
     >
       {imageUrl && (
         <div className="relative h-48 w-full">
