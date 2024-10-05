@@ -1,9 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-darkPurple py-8">
+    <footer className="bg-darkPurple py-8 min-w-full">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-4 md:mb-0 flex items-center">
