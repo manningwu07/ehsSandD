@@ -17,7 +17,7 @@ interface FeatureProps {
 
 const Features: React.FC<FeatureProps> = ({ Icon, title, description }) => {
   return (
-    <Card className="bg-purple-900 border-gold">
+    <Card className="bg-darkPurple border-gold transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"> 
       <CardContent className="flex flex-col items-center p-6 text-center">
         {/* Make sure you import the icon you need from lucide-react */}
         <Icon className="mb-4 h-12 w-12 text-gold" />
@@ -69,7 +69,7 @@ export default function AboutUsPage() {
         <br></br>
         <br></br>
         <br></br>
-        
+
         <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <Features
             Icon={Telescope}
@@ -98,7 +98,7 @@ export default function AboutUsPage() {
             Our History
           </h2>
           <p className="mx-auto text-center text-lg text-gray-300">
-            Founded in 2010 by a group of passionate astronomy students,
+            Founded in 2022 by a group of passionate astronomy students,
             AstroGaels has grown from a small club into a thriving community of
             space enthusiasts. Over the years, we've organized countless
             stargazing sessions, hosted renowned guest speakers, and even

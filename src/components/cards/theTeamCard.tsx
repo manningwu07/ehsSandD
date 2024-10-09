@@ -10,7 +10,7 @@ interface TeamMemberProps {
 
 export default function TeamMemberCard({ name, position, introduction, imageUrl }: TeamMemberProps) {
   return (
-    <Card className="bg-darkPurple text-white overflow-hidden">
+    <Card className="bg-darkPurple text-white overflow-hidden transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg">
       <div className="relative h-64 w-full">
         <Image
           src={imageUrl}
