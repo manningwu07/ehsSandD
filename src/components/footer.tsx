@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -8,15 +9,15 @@ export default function Footer() {
           <div className="mb-4 md:mb-0 flex items-center">
             <Image
               src="/logo.jpg"
-              alt="AstroGaels Logo"
+              alt="Brand"
               width={40}
               height={40}
               className="mb-2 rounded-full"
             />
-            <span className="px-2">&copy; 2024 AstroGaels. All rights reserved.</span>
+            <span className="px-2">&copy; Date Brand. All rights reserved.</span>
           </div>
           <div className="flex space-x-4">
-            <span className="px-2"> Made by Manning Wu (Class of 2025)</span>
+            <span className="px-2"> Links usually but you can put other info here as well.</span>
           </div>
         </div>
       </div>

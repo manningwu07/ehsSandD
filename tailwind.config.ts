@@ -15,11 +15,7 @@ export default {
       },
 
       colors: {
-        darkPurple: "#1a002d", 
-        purple: "#2c0038", 
-        gold: "#ffd700", 
-        mutedGold: "#e6b31c",
-        white: "#ffffff", 
+        // Add the 5 colors here
       },
     },
   },

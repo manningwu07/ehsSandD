@@ -3,39 +3,33 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-purple bg-darkPurple text-white">
+    <header className="sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center space-x-2">
           <Image
             src="/logo.jpg"
-            alt="AstroGaels"
+            alt="Brand"
             width={40}
             height={40}
             className="rounded-full"
           />
-          <span className="text-xl font-bold">AstroGaels</span>
+          <span className="text-xl font-bold">Brand</span>
         </Link>
         <nav className="hidden items-center space-x-4 md:flex">
-          <Link
-            href="/opportunities"
-            className="transition-colors hover:text-gold"
-          >
-            Oppurtunities
+          <Link href="/" className="hover:text- transition-colors">
+            1
           </Link>
-          <Link href="/about" className="transition-colors hover:text-gold">
-            About Us
+          <Link href="/" className="hover:text- transition-colors">
+            2
           </Link>
-          <Link
-            href="/classes"
-            className="transition-colors hover:text-gold"
-          >
-            Classes
+          <Link href="/" className="hover:text- transition-colors">
+            3
           </Link>
-          <Link 
-          href = "https://discord.gg/tB99sbbxWA"  
-          target="_blank"
-          className="px-1.5 py-0.5 rounded-md bg-gold text-darkPurple hover:bg-gold/90">
-            Join Our Discord
+          <Link href="/" className="hover:text- transition-colors">
+            4
+          </Link>
+          <Link href="/" className="hover:text- transition-colors">
+            5
           </Link>
         </nav>
       </div>

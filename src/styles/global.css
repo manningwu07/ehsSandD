@@ -1,27 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.parallax-stars {
-  background-image: radial-gradient(1px at 20% 20%, #fff, transparent),
-    radial-gradient(3px at 30% 70%, #fff, transparent),
-    radial-gradient(2px at 80% 30%, gold, transparent),
-    radial-gradient(2px at 60% 50%, #fff, transparent),
-    radial-gradient(1px at 90% 80%, #fff, transparent),
-    radial-gradient(2px at 10% 90%, gold, transparent),
-    radial-gradient(3px at 40% 10%, #fff, transparent),
-    radial-gradient(1px at 65% 65%, #fff, transparent),
-    radial-gradient(2px at 95% 95%, gold, transparent);
-  background-size: 200px 200px;
-  animation: twinkle 2s infinite ease-in-out;
-}
