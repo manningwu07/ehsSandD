@@ -4,7 +4,7 @@
 
   "featured_oppurtunities": [
     {
-      "imageUrl": "/placeholder.svg",
+      "imageUrl": "/oppurtunities/test.png",
       "title": "UC Berkeley AstroNight",
       "description": "Connect with UC Berkeley students and explore the night sky. What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? What happens if I keep yapping? "
     },
@@ -48,6 +48,11 @@
     {
       "imageUrl": "/placeholder.svg",
       "title": "Online Events",
+      "description": "Join virtual events and engage with like-minded individuals."
+    },
+    {
+      "imageUrl": "/placeholder.svg",
+      "title": "New event blah blah blah",
       "description": "Join virtual events and engage with like-minded individuals."
     }
   ]
