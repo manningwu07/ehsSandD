@@ -1,0 +1,39 @@
+{
+    "navigation": {
+      "links": [
+        { "text": "Home", "href": "/" },
+        { "text": "About", "href": "/about" },
+        { "text": "Events", "href": "/events" },
+        { "text": "Resources", "href": "/resources" },
+        { "text": "Contact", "href": "/contact" }
+      ],
+      "buttons": [
+        { "text": "Join Now", "href": "/join", "variant": "primary" }
+      ]
+    },
+    "footer": {
+      "social": {
+        "instagram": "https://instagram.com/ehsdebate",
+        "twitter": "https://twitter.com/ehsdebate",
+        "facebook": "https://facebook.com/ehsdebate"
+      },
+      "links": [
+        {
+          "title": "Links",
+          "items": [
+            { "text": "Schedule", "href": "/schedule" },
+            { "text": "Resources", "href": "/resources" },
+            { "text": "Contact", "href": "/contact" }
+          ]
+        },
+        {
+          "title": "Resources",
+          "items": [
+            { "text": "Practice Materials", "href": "/materials" },
+            { "text": "Tournament Info", "href": "/tournaments" },
+            { "text": "FAQs", "href": "/faqs" }
+          ]
+        }
+      ]
+    }
+  }

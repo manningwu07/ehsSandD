@@ -1,0 +1,74 @@
+{
+  "components": {
+    "hero": {
+      "title": "Discover Your Voice in Speech & Debate",
+      "subtitle": "Build Confidence. Gain Skills. Own the Room.",
+      "description": "Join EHS Speech & Debate to develop critical thinking, public speaking, and leadership skills that last a lifetime.",
+      "cta": {
+        "primary": { "text": "Join Our Team", "href": "/join" },
+        "secondary": { "text": "Learn More", "href": "/about" }
+      }
+    }
+  },
+  "pages": {
+    "landing": {
+      "features": {
+        "title": "Why Join Speech & Debate?",
+        "items": [
+          {
+            "title": "Critical Thinking",
+            "description": "Develop advanced analytical and reasoning skills through competitive debate",
+            "icon": "brain"
+          },
+          {
+            "title": "Public Speaking",
+            "description": "Master the art of effective communication and persuasive speaking",
+            "icon": "mic"
+          },
+          {
+            "title": "Leadership",
+            "description": "Build confidence and leadership abilities that last a lifetime",
+            "icon": "trophy"
+          }
+        ]
+      },
+      "stats": {
+        "title": "Our Impact",
+        "items": [
+          { "value": "50+", "label": "Active Members" },
+          { "value": "30+", "label": "Tournament Wins" },
+          { "value": "100%", "label": "College Acceptance" }
+        ]
+      },
+      "testimonials": {
+        "title": "Success Stories",
+        "subtitle": "Hear from our members",
+        "items": [
+          {
+            "quote": "Speech & Debate transformed my confidence and helped me get into my dream college.",
+            "author": "Sarah M.",
+            "role": "Team Captain '23"
+          },
+          {
+            "quote": "The critical thinking skills I learned in debate have been invaluable in college and beyond.",
+            "author": "James L.",
+            "role": "Alumni '22"
+          },
+          {
+            "quote": "Joining the debate team was the best decision I made in high school.",
+            "author": "Emily R.",
+            "role": "State Finalist '23"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Ready to Join Our Team?",
+        "description": "Take the first step towards mastering public speaking and critical thinking.",
+        "button": {
+          "text": "Apply Now",
+          "href": "/apply"
+        }
+      }
+    }
+  }
+}
