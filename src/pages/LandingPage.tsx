@@ -1,5 +1,5 @@
 import Footer from '~/components/footer'
-import Hero from '~/components/hero'
+import Hero from '~/components/landing/hero'
 import CTA from '~/components/landing/cta'
 import Features from '~/components/landing/features'
 import Stats from '~/components/landing/stats'
