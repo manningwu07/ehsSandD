@@ -14,8 +14,8 @@ export default {
         "2xl": "1440px",
       },
       colors: {
-		"primary": "#2F4F2F",
-		"secondary": "#26387a",
+		darkGreen: "#2F4F2F",
+		darkBlue: "#26387a"
 	  },
       keyframes: {
         "accordion-down": {

@@ -1,13 +1,11 @@
 {
   "components": {
     "hero": {
-      "title": "Discover Your Voice in Speech & Debate",
-      "subtitle": "Build Confidence. Gain Skills. Own the Room.",
-      "description": "Join EHS Speech & Debate to develop critical thinking, public speaking, and leadership skills that last a lifetime.",
-      "cta": {
-        "primary": { "text": "Join Our Team", "href": "/join" },
-        "secondary": { "text": "Learn More", "href": "/about" }
-      }
+      "title": "Emerald High School Speech & Debate",
+      "subtitle": "Discover Your Voice. Build Confidence. Gain Skills. Own the Room.",
+      "description": "Join us to develop critical thinking, public speaking, and leadership skills that last a lifetime.",
+      "link": "/",
+      "cta": "Click now to sign up: 24-25 Membership Form"
     }
   },
   "pages": {

@@ -4,13 +4,14 @@ import { Button } from "~/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Gavel, Scroll, Trophy } from "lucide-react";
+import { motion } from "framer-motion";
 import type { HeroSection } from "~/types/components";
 
 export default function Hero({
   title,
   subtitle,
   description,
+  link,
   cta,
 }: HeroSection) {
   const [isBreathingFire, setIsBreathingFire] = useState(false);
@@ -27,7 +28,7 @@ export default function Hero({
     startAnimation();
 
     // Set up interval for repeated animations
-    const interval = setInterval(startAnimation, 6500); // 2.5s animation + 4s pause
+    const interval = setInterval(startAnimation, 10500); // 2.5s animation + 4s pause
 
     return () => clearInterval(interval);
   }, []);
@@ -38,78 +39,88 @@ export default function Hero({
       <div className="from-background absolute top-0 z-10 h-32 w-full bg-gradient-to-b to-transparent" />
 
       {/* School building background */}
-      <div className="absolute inset-0 w-full">
+      <div className="absolute inset-0 h-full w-full">
         <Image
           src="/landing/ehsBackground.png"
           alt="Emerald High School"
           fill
-          className="object-cover rounded-s-3xl"
+          className="rounded-3xl object-cover"
           priority
         />
         <div className="from-background via-background/95 to-background/90 absolute inset-0 bg-gradient-to-t" />
       </div>
+
       <div className="container relative mx-auto max-w-3xl px-4 md:px-6">
         {/* Dragon with fire animation */}
-        <div className="relative">
-          <Image
-            src="/landing/heroTop.png"
-            alt="Dragon"
-            width={768}
-            height={550}
-            className="relative z-10"
-          />
-          {isBreathingFire && (
-            <div className="absolute left-[60%] top-3/4 z-20 -translate-x-1/2">
-              <div className="relative">
-                <Image
-                  src="/landing/Fire_Animation.gif"
-                  alt="Test"
-                  width={300}
-                  height={300}
-                />
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <div className="relative">
+            <Image
+              src="/landing/heroTop.png"
+              alt="Dragon"
+              width={768}
+              height={550}
+              className="relative z-10"
+            />
+            {isBreathingFire && (
+              <div className="absolute left-[60%] top-3/4 z-20 -translate-x-1/2">
+                <div className="relative">
+                  <Image
+                    src="/landing/Fire_Animation.gif"
+                    alt="Test"
+                    width={300}
+                    height={300}
+                  />
+                </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        </motion.div>
 
-        <div className="bg-primary/50 flex flex-col justify-center space-y-4 rounded-lg p-4 backdrop-blur-3xl sm:p-6 md:p-8 lg:p-10 xl:p-12">
-          <div className="space-y-2">
-            <h1 className="text-primary text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+        <div className="flex flex-col justify-center space-y-4 rounded-lg bg-darkBlue/20 p-4 backdrop-blur-3xl sm:p-6 md:p-8 lg:p-10 xl:p-12">
+          <div className="space-y-2 text-center">
+            <h1 className="text-3xl font-bold tracking-tighter text-darkGreen sm:text-4xl lg:text-5xl xl:text-6xl/none">
               {title}
             </h1>
-            <p className="text-primary max-w-[600px] text-xl md:text-2xl">
+            <p className="max-w-[600px] text-xl text-darkGreen md:text-2xl">
               {subtitle}
             </p>
-            <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl">
-              {description}
-            </p>
+            <p className="max-w-[600px] text-white md:text-xl">{description}</p>
           </div>
-          <div className="flex flex-col gap-2 min-[400px]:flex-row">
+          <motion.div
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1.05 }}
+            transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+            className="flex flex-col justify-center gap-2 min-[400px]:flex-row"
+          >
             <Button
               asChild
-              className="bg-primary hover:bg-primary/90 text-white"
+              className="bg-darkGreen p-6 text-xl text-white hover:bg-darkGreen/90 hover:underline cursor-pointer hover:scale-105 transition-all duration-200"
             >
-              <Link href={cta.primary.href}>{cta.primary.text}</Link>
+              <Link href={link}>{cta}</Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary/10"
-            >
-              <Link href={cta.secondary.href}>{cta.secondary.text}</Link>
-            </Button>
-          </div>
+          </motion.div>
         </div>
-
-        <Image
-          src="/landing/heroBottom.png"
-          alt="Bottom decoration"
-          width={768}
-          height={550}
-        />
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <Image
+            src="/landing/heroBottom.png"
+            alt="Bottom decoration"
+            width={768}
+            height={550}
+          />
+        </motion.div>
       </div>
       {/* Bottom fade gradient */}
-      <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-background to-transparent z-10" />
+      <div className="from-background absolute bottom-0 z-10 h-32 w-full bg-gradient-to-t to-transparent" />
     </section>
   );
 }

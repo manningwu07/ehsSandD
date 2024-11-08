@@ -15,7 +15,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-white mx-0">
       <Navbar {...navigation.navigation} />
-      <main className='mx-auto px-4 py-6 sm:px-6 lg:px-8'>
+      <main className='mx-auto px-2 py-6 sm:px-4 lg:px-6 2xl:px-8'>
         <Hero {...content.components.hero} />
         <Features {...content.pages.landing.features} />
         <Stats {...content.pages.landing.stats} />
