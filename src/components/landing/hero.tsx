@@ -81,7 +81,7 @@ export default function Hero({
           </div>
         </motion.div>
 
-        <div className="flex flex-col justify-center space-y-4 rounded-lg bg-darkBlue/20 p-4 backdrop-blur-3xl sm:p-6 md:p-8 lg:p-10 xl:p-12">
+        <div className="flex flex-col justify-center space-y-4 rounded-lg bg-darkBlue/10 p-4 backdrop-blur-3xl sm:p-6 md:p-8 lg:p-10 xl:p-12">
           <div className="space-y-2 text-center">
             <h1 className="text-3xl font-bold tracking-tighter text-darkGreen sm:text-4xl lg:text-5xl xl:text-6xl/none">
               {title}

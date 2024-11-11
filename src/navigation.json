@@ -1,14 +1,10 @@
 {
     "navigation": {
       "links": [
-        { "text": "Home", "href": "/" },
-        { "text": "About", "href": "/about" },
-        { "text": "Events", "href": "/events" },
-        { "text": "Resources", "href": "/resources" },
-        { "text": "Contact", "href": "/contact" }
-      ],
-      "buttons": [
-        { "text": "Join Now", "href": "/join", "variant": "primary" }
+        {"text": "Aero Advantage", "href": "/aero-advantage"},
+        {"text": "Students", "href": "/students"},
+        {"text": "Parents", "href": "/parents"},
+        {"text": "Join", "href": "/", "join": true}
       ]
     },
     "footer": {

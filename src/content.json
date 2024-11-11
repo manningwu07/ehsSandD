@@ -3,39 +3,33 @@
     "hero": {
       "title": "Emerald High School Speech & Debate",
       "subtitle": "Discover Your Voice. Build Confidence. Gain Skills. Own the Room.",
-      "description": "Join us to develop critical thinking, public speaking, and leadership skills that last a lifetime.",
+      "description": "TOP-10 STANFORD INVITATIONAL, TOP 10 IN STATE, CHAMPION TOC DSDS1, & MORE",
       "link": "/",
       "cta": "Click now to sign up: 24-25 Membership Form"
     }
   },
   "pages": {
     "landing": {
-      "features": {
+      "whyJoin": {
         "title": "Why Join Speech & Debate?",
-        "items": [
-          {
-            "title": "Critical Thinking",
-            "description": "Develop advanced analytical and reasoning skills through competitive debate",
-            "icon": "brain"
-          },
-          {
-            "title": "Public Speaking",
-            "description": "Master the art of effective communication and persuasive speaking",
-            "icon": "mic"
-          },
-          {
-            "title": "Leadership",
-            "description": "Build confidence and leadership abilities that last a lifetime",
-            "icon": "trophy"
-          }
-        ]
+        "reason": "Speech & Debate is a team sport that helps you develop your public speaking and critical thinking skills.",
+        "imageSrc": "/placeholder.svg?height=400&width=400"
       },
-      "stats": {
-        "title": "Our Impact",
-        "items": [
-          { "value": "50+", "label": "Active Members" },
-          { "value": "30+", "label": "Tournament Wins" },
-          { "value": "100%", "label": "College Acceptance" }
+      "whatYouGet": {
+        "title": "What you get",
+        "list": [
+          { "paragraph": "Life long friendships" },
+          { "paragraph": "Critical thinking skills" },
+          { "paragraph": "Argumentative and research skills" },
+          { "paragraph": "Public speaking" },
+          { "paragraph": "Leadership" },
+          { "paragraph": "Team spirit" },
+          { "paragraph": "A supportive community" }
+        ],
+        "learnMore": [
+          { "text": "Calendar", "href": "/calendar" },
+          { "text": "Students", "href": "/students" },
+          { "text": "Resources", "href": "/resources" }
         ]
       },
       "testimonials": {
@@ -43,19 +37,24 @@
         "subtitle": "Hear from our members",
         "items": [
           {
-            "quote": "Speech & Debate transformed my confidence and helped me get into my dream college.",
+            "quote": "Speech & Debate transformed my confidence and helped me get into my dream college. The critical thinking skills I learned in debate have been invaluable in college and beyond. Joining the debate team was the best decision I made in high school.",
+            "author": "Emily R.",
+            "role": "Alumni '22"
+          },
+          {
+            "quote": "Joining the debate team was the best decision I made in high school. I'm so glad I joined the team and I can't wait to see what we'll accomplish together.",
+            "author": "James L.",
+            "role": "State Finalist '23"
+          },
+          {
+            "quote": "I'm so glad I joined the team and I can't wait to see what we'll accomplish together. I'm excited to be a part of this team and to learn from the experienced and passionate members of the team.",
             "author": "Sarah M.",
             "role": "Team Captain '23"
           },
           {
-            "quote": "The critical thinking skills I learned in debate have been invaluable in college and beyond.",
-            "author": "James L.",
-            "role": "Alumni '22"
-          },
-          {
-            "quote": "Joining the debate team was the best decision I made in high school.",
-            "author": "Emily R.",
-            "role": "State Finalist '23"
+            "quote": "I'm so glad I joined the team and I can't wait to see what we'll accomplish together. I'm excited to be a part of this team and to learn from the experienced and passionate members of the team.",
+            "author": "Sarah M.",
+            "role": "Team Captain '23"
           }
         ]
       },
@@ -65,7 +64,9 @@
         "button": {
           "text": "Apply Now",
           "href": "/apply"
-        }
+        },
+        "imageSrc": "/placeholder.svg?height=400&width=400"
+        
       }
     }
   }

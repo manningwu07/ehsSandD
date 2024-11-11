@@ -4,10 +4,10 @@ import type { NavFooterContent } from "~/types/components"
 
 export default function Footer({ footer }: { footer: NavFooterContent['footer'] }) {
   return (
-    <footer className="w-full py-12 md:py-24 lg:py-32 bg-[#2F4F2F] text-white flex justify-center">
+    <footer className="w-full pt-12 md:pt-24 lg:pt-32 pb-4 md:pb-8 lg:pb-12 bg-[#2F4F2F] text-white flex justify-center">
       <div className="container px-4 md:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mx-0">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center text-center">
             <h3 className="text-lg font-bold mb-4">EHS Speech & Debate</h3>
             <p className="text-sm text-gray-300">Empowering voices, shaping futures.</p>
           </div>

@@ -2,6 +2,7 @@
 export type NavLink = {
   text: string;
   href: string;
+  join?: boolean;
 };
 
 export type NavButton = NavLink & {

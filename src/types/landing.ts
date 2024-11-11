@@ -8,11 +8,6 @@ export type Feature = {
   icon: string;
 };
 
-export type Stat = {
-  value: string;
-  label: string;
-};
-
 export type Testimonial = {
   quote: string;
   author: string;
@@ -39,7 +34,7 @@ export type MainContent = {
     };
     stats: {
       title: string;
-      items: Stat[];
+      items: Array<{ paragraph: string }>;
     };
     testimonials: {
       title: string;

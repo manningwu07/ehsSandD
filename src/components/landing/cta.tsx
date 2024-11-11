@@ -1,19 +1,51 @@
-import { Button } from "~/components/ui/button"
-import Link from "next/link"
-import type { CTASection } from "~/types/landing"
+import Image from "next/image";
+import Link from "next/link";
 
-export default function CTA({ title, description, button }: CTASection) {
+interface CTAProps {
+  title: string;
+  description: string;
+  button: {
+    text: string;
+    href: string;
+  };
+  imageSrc: string;
+}
+
+export default function CTA({
+  title,
+  description,
+  button,
+  imageSrc,
+}: CTAProps) {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-[#2F4F2F]/10 flex justify-center rounded-lg">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center text-center space-y-4">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#2F4F2F]">{title}</h2>
-          <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">{description}</p>
-          <Button asChild className="bg-[#2F4F2F] hover:bg-[#2F4F2F]/90 text-white">
-            <Link href={button.href}>{button.text}</Link>
-          </Button>
+    <section className="bg-slate-50 py-5">
+      <div className="container px-4 md:px-6 lg:px-10 2xl:px-16">  
+        <div className="grid items-center gap-8 lg:gap-12 2xl:gap-16 md:grid-cols-2">
+          <div className="relative aspect-square overflow-hidden rounded-xl">
+            <Image
+              src={imageSrc}
+              alt="Speech and Debate Team Members"
+              width={600}
+              height={600}
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="space-y-6">
+            <h2 className="text-4xl font-bold tracking-tighter text-darkGreen">
+              {title}
+            </h2>
+            <p className="max-w-[600px] text-xl text-slate-700">
+              {description}
+            </p>
+            <Link href={button.href} className="inline-block">
+              <div className="rounded-full bg-darkBlue px-4 py-3 text-lg text-white hover:bg-darkBlue/90 shadow-darkGreen shadow-md">
+                {button.text}
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
