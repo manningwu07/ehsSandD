@@ -13,7 +13,7 @@ export default function AEROPage() {
       <Navbar {...navigation.navigation} />
       <div className="container mx-auto max-w-6xl px-4 py-12">
         <section className="mb-16 space-y-8">
-          <h1 className="text-4xl font-bold text-darkBlue md:text-5xl text-center">
+          <h1 className="text-4xl font-bold text-darkGreen md:text-5xl text-center">
             {title}
           </h1>
           <div className="grid items-center gap-8 md:grid-cols-2">

@@ -14,8 +14,8 @@ export default function Sidebar({
   setSelectedSection: React.Dispatch<React.SetStateAction<string>>;
 }) {
   return (
-    <div className="flex min-h-screen">
-      <aside className="w-64 border-r border-gray-200 bg-white">
+    <div className="flex h-[calc(100vh-6rem)">
+      <aside className="w-56 md:w-64 border-r border-gray-200 bg-white z-10">
         <div className="p-4">
           <h2 className="mb-4 text-xl font-bold text-darkBlue">Quick Links</h2>
           <nav>
@@ -41,7 +41,7 @@ export default function Sidebar({
           </nav>
         </div>
       </aside>
-      <main className="h-[calc(100vh-4rem)] flex-1 overflow-y-auto bg-gray-50 p-6">
+      <main className="min-h-[calc(100vh-10rem)] flex-1 overflow-y-auto bg-gray-50 p-6">
         {children}
       </main>
     </div>
