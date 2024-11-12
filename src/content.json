@@ -66,8 +66,126 @@
           "href": "/apply"
         },
         "imageSrc": "/placeholder.svg?height=400&width=400"
-        
       }
+    },
+    "students": {
+      "upcomingEvents": [
+        {
+          "date": "Feb 15",
+          "title": "Join Louis",
+          "description": "Tournament Preparation",
+          "time": "3:30 PM",
+          "buttonText": "RSVP",
+          "details": {
+            "location": "Online",
+            "deadlines": {
+              "signup": "Feb 15",
+              "fees": "Feb 16",
+              "drop": "Feb 17"
+            },
+            "moreInfoLink": "https://www.google.com",
+            "additionalInfo": "Yap yap"
+          }
+        },
+        {
+          "date": "Feb 23",
+          "title": "Glen Brooks Invitational",
+          "description": "Mock Debate",
+          "time": "4:00 PM",
+          "buttonText": "RSVP",
+          "details": {
+            "location": "Online",
+            "deadlines": {
+              "signup": "Feb 15",
+              "fees": "Feb 16",
+              "drop": "Feb 17"
+            },
+            "moreInfoLink": "https://www.google.com",
+            "additionalInfo": "Yap yap"
+          }
+        }
+      ],
+
+      "upcomingDates": [
+        {
+          "date": "November 15",
+          "event": "Stanford Invitational Registration Due",
+          "type": "Deadline"
+        },
+        {
+          "date": "November 20",
+          "event": "Practice Tournament",
+          "type": "Event"
+        },
+        {
+          "date": "December 1",
+          "event": "State Qualifiers Begin",
+          "type": "Competition"
+        }
+      ],
+
+      "forms": {
+        "interest": [
+          "Stanford Invitational Interest Form",
+          "State Championships Interest Form",
+          "National Qualifiers Interest Form"
+        ],
+        "competing": [
+          "Student Information Form",
+          "Parent/Guardian Consent Form",
+          "Travel Authorization Form"
+        ],
+        "guidelines": [
+          "Submit all required documentation at least 2 weeks before the tournament",
+          "Ensure all forms are signed by both student and parent/guardian",
+          "Include all necessary medical and emergency contact information"
+        ]
+      },
+
+      "resources": [
+        {
+          "href": "https://www.google.com",
+          "text": "Tournament Rules and Regulations"
+        },
+        {
+          "href": "https://www.google.com",
+          "text": "Public Speaking Tips"
+        },
+        {
+          "href": "https://www.google.com",
+          "text": "Debate Strategies"
+        },
+        {
+          "href": "https://www.google.com",
+          "text": "Research Resources"
+        },
+        {
+          "href": "https://www.google.com",
+          "text": "Sample Debates and Analysis"
+        }
+      ]
+    },
+    "aeroAdvantage": {
+      "title": "The AERO Advantage",
+      "description": "Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap",
+      "priceText": "For only $450, train your kid to become an Aeronaut Debater",
+      "locationSection": {
+        "title": "Location & Dates",
+        "imageUrl": "/placeholder.svg?height=300&width=500"
+      },
+      "teamTitle": "Our Team",
+      "teamMembers": [
+        {
+          "name": "Team Member Name",
+          "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+          "imageUrl": "/placeholder.svg?height=100&width=100"
+        },
+        {
+          "name": "Another Team Member",
+          "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+          "imageUrl": "/placeholder.svg?height=100&width=100"
+        }
+      ]
     }
   }
 }

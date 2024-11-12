@@ -1,12 +1,20 @@
 import { useState } from "react";
 import Footer from "~/components/footer";
 import Navbar from "~/components/navbar";
-import Layout from "~/components/students/layout";
+import Sidebar from "~/components/sidebar";
 import navigation from "~/navigation.json";
 import Image from "next/image";
 import { AlertCircle } from "lucide-react";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "~/components/ui/accordion";
+import Link from "next/link";
+import { Calendar, FileText, Info, ListTodo } from "lucide-react";
 
 const upcomingEvents = [
   {
@@ -14,21 +22,36 @@ const upcomingEvents = [
     title: "Join Louis",
     description: "Tournament Preparation",
     time: "3:30 PM",
+    buttonText: "RSVP",
+    details: {
+      location: "Online",
+      deadlines: {
+        signup: "Feb 15",
+        fees: "Feb 16",
+        drop: "Feb 17",
+      },
+      moreInfoLink: "https://www.google.com",
+      additionalInfo: "Yap yap",
+    },
   },
   {
     date: "Feb 23",
     title: "Glen Brooks Invitational",
     description: "Mock Debate",
     time: "4:00 PM",
+    buttonText: "RSVP",
+    details: {
+      location: "Online",
+      deadlines: {
+        signup: "Feb 15",
+        fees: "Feb 16",
+        drop: "Feb 17",
+      },
+      moreInfoLink: "https://www.google.com",
+      additionalInfo: "Yap yap",
+    },
   },
 ];
-
-const StudentSections = {
-  EVENTS: "events",
-  CALENDAR: "calendar",
-  TOURNAMENTS: "tournaments",
-  RESOURCES: "resources",
-};
 
 const upcomingDates = [
   {
@@ -67,19 +90,24 @@ const forms = {
 };
 
 export default function StudentsPage() {
-  const [selectedSection, setSelectedSection] = useState(
-    StudentSections.EVENTS,
-  );
+  const [selectedSection, setSelectedSection] = useState("events");
+
+  const menuItems = [
+    { label: "Events", icon: ListTodo },
+    { label: "Calendar", icon: Calendar },
+    { label: "Tournament Info", icon: Info },
+    { label: "Resources", icon: FileText },
+  ];
 
   function renderContent() {
     switch (selectedSection) {
-      case StudentSections.EVENTS:
+      case "events":
         return <Events />;
-      case StudentSections.CALENDAR:
+      case "calendar":
         return <CalendarPage />;
-      case StudentSections.TOURNAMENTS:
+      case "tournament info":
         return <TournamentsPage />;
-      case StudentSections.RESOURCES:
+      case "resources":
         return <ResourcesPage />;
       default:
         return <Events />;
@@ -89,22 +117,23 @@ export default function StudentsPage() {
   return (
     <>
       <Navbar {...navigation.navigation} />
-      <Layout>
-        {/* Right Content Area */}
-        <div className="col-span-3">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedSection}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              {renderContent()}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </Layout>
+      <Sidebar
+        menuItems={menuItems}
+        selectedSection={selectedSection}
+        setSelectedSection={setSelectedSection}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedSection}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {renderContent()}
+          </motion.div>
+        </AnimatePresence>
+      </Sidebar>
       <Footer {...navigation} />
     </>
   );
@@ -113,25 +142,54 @@ export default function StudentsPage() {
 function Events() {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold text-[#00008B]">Welcome, Debaters!</h1>
+      <h1 className="text-3xl font-bold text-darkBlue">Welcome, Debaters!</h1>
 
       <section>
-        <h2 className="mb-4 text-2xl font-semibold text-[#006400]">
+        <h2 className="mb-4 text-2xl font-semibold text-darkGreen">
           Upcoming Events
         </h2>
         <div className="space-y-4">
           {upcomingEvents.map((event, index) => (
-            <div key={index} className="rounded-lg bg-white p-4 shadow">
+            <div className="rounded-lg bg-white p-4 shadow">
               <div className="mb-2 flex items-center justify-between">
-                <h3 className="text-xl font-bold text-[#00008B]">
-                  {event.date} - {event.title}
-                </h3>
-                <button className="rounded border border-[#006400] bg-white px-4 py-2 text-[#006400] transition-colors hover:bg-[#006400] hover:text-white">
-                  RSVP
-                </button>
+                <div>
+                  <h3 className="text-xl font-bold text-darkBlue">
+                    {event.date} - {event.title}
+                  </h3>
+                  <p className="text-gray-600">{event.description}</p>
+                  <p className="text-sm text-gray-500">Time: {event.time}</p>
+                </div>
               </div>
-              <p className="text-gray-600">{event.description}</p>
-              <p className="mt-1 text-sm text-gray-500">Time: {event.time}</p>
+
+              <Accordion type="single" collapsible>
+                <AccordionItem value={`event-${index}`}>
+                  <AccordionTrigger>
+                    <div className="mt-2 w-full">{event.buttonText}</div>
+                  </AccordionTrigger>
+                  <AccordionContent className="mt-4 rounded-lg bg-gray-50 p-4">
+                    <p className="mb-1 font-semibold">
+                      Location: {event.details.location}
+                    </p>
+                    <p className="font-semibold">Deadlines:</p>
+                    <ul className="mb-3 ml-4 list-disc">
+                      <li>
+                        Sign Up Deadline: {event.details.deadlines.signup}
+                      </li>
+                      <li>Fees Deadline: {event.details.deadlines.fees}</li>
+                      <li>Drop Deadline: {event.details.deadlines.drop}</li>
+                    </ul>
+                    <Link
+                      href={event.details.moreInfoLink}
+                      className="text-blue-500 hover:underline"
+                    >
+                      Click here to sign-up for the tournament
+                    </Link>
+                    <p className="text-sm text-gray-500">
+                      {event.details.additionalInfo}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </div>
           ))}
         </div>
@@ -145,19 +203,19 @@ function CalendarPage() {
     <div className="grid gap-8 md:grid-cols-2">
       <div className="space-y-6">
         <div className="flex items-center gap-2">
-          <CalendarIcon className="h-6 w-6 text-[#006400]" />
-          <h1 className="text-3xl font-bold text-[#00008B]">Team Calendar</h1>
+          <CalendarIcon className="h-6 w-6 text-darkGreen" />
+          <h1 className="text-3xl font-bold text-darkBlue">Team Calendar</h1>
         </div>
 
         <div className="space-y-4">
           {upcomingDates.map((item, index) => (
             <div
               key={index}
-              className="rounded-r-lg border-l-4 border-[#006400] bg-white p-4 shadow-sm"
+              className="rounded-r-lg border-l-4 border-darkGreen bg-white p-4 shadow-sm"
             >
-              <div className="font-semibold text-[#00008B]">{item.date}</div>
+              <div className="font-semibold text-darkBlue">{item.date}</div>
               <div className="text-gray-600">{item.event}</div>
-              <div className="text-sm text-[#006400]">{item.type}</div>
+              <div className="text-sm text-darkGreen">{item.type}</div>
             </div>
           ))}
         </div>
@@ -179,19 +237,19 @@ function CalendarPage() {
 function TournamentsPage() {
   return (
     <div className="max-w-4xl space-y-8">
-      <h1 className="text-3xl font-bold text-[#00008B]">
+      <h1 className="text-3xl font-bold text-darkBlue">
         Tournament Information
       </h1>
 
       <section className="space-y-6">
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[#006400]">
+          <h2 className="text-2xl font-semibold text-darkGreen">
             Tournament Interest Forms
           </h2>
           <ul className="space-y-2">
             {forms.interest.map((form, index) => (
               <li key={index} className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#006400]" />
+                <span className="h-2 w-2 rounded-full bg-darkGreen" />
                 <span>{form}</span>
               </li>
             ))}
@@ -199,13 +257,13 @@ function TournamentsPage() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[#006400]">
+          <h2 className="text-2xl font-semibold text-darkGreen">
             Forms for Competing
           </h2>
           <ul className="space-y-2">
             {forms.competing.map((form, index) => (
               <li key={index} className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#006400]" />
+                <span className="h-2 w-2 rounded-full bg-darkGreen" />
                 <span>{form}</span>
               </li>
             ))}
@@ -213,7 +271,7 @@ function TournamentsPage() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[#006400]">
+          <h2 className="text-2xl font-semibold text-darkGreen">
             Submission Guidelines
           </h2>
           <ul className="ml-4 list-inside list-decimal space-y-2">
@@ -226,7 +284,7 @@ function TournamentsPage() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[#006400]">
+          <h2 className="text-2xl font-semibold text-darkGreen">
             Submission Location
           </h2>
           <p className="text-gray-600">
@@ -252,20 +310,29 @@ function TournamentsPage() {
 
 function ResourcesPage() {
   const resources = [
-    "Tournament Rules and Regulations",
-    "Public Speaking Tips",
-    "Debate Strategies",
-    "Research Resources",
-    "Sample Debates and Analysis",
+    {
+      href: "https://www.google.com",
+      text: "Tournament Rules and Regulations",
+    },
+    { href: "https://www.google.com", text: "Public Speaking Tips" },
+    { href: "https://www.google.com", text: "Debate Strategies" },
+    { href: "https://www.google.com", text: "Research Resources" },
+    { href: "https://www.google.com", text: "Sample Debates and Analysis" },
   ];
 
   return (
     <div className="space-y-4">
-      <h1 className="text-3xl font-bold text-[#00008B]">Resources</h1>
+      <h1 className="text-3xl font-bold text-darkBlue">Resources</h1>
       <ul className="list-inside list-disc space-y-2">
         {resources.map((item, index) => (
           <li key={index} className="text-gray-600">
-            {item}
+            <Link
+              href={item.href}
+              key={index}
+              className="text-blue-500 hover:underline"
+            >
+              {item.text}
+            </Link>
           </li>
         ))}
       </ul>
