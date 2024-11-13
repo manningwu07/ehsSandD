@@ -1,33 +1,7 @@
 import Link from "next/link";
+import { DataStructure } from "~/utils/dataStructure";
 
-const mentorContent = {
-  title: "Chaperone Sign up Instructions",
-  videoSrc: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-  clearanceInstructions: [
-    {
-      title: "Level 2 Clearance",
-      description:
-        "You need this level of clearance in order to drive students to local tournaments and be a day chaperone. Clearance can take up to 10 days.",
-    },
-    {
-      title: "Level 3 Clearance",
-      description:
-        "You need this level of clearance in order to be an overnight chaperone at travel tournaments. Clearance can take up to 45 days.",
-    },
-  ],
-  additionalLinks: [
-    {
-      text: "Create a Be A Mentor Account",
-      href: "https://www.beamentor.org/linkpages/mentorasp/specialprojects/srvusd/Default.asp",
-    },
-    {
-      text: "If you have a Be A Mentor account, click here to log in",
-      href: "https://www.beamentor.org/login",
-    },
-  ],
-};
-
-export default function Mentor() {
+export default function Mentor({mentorContent}: {mentorContent: DataStructure["pages"]["parents"]["mentor"]}) {
   return (
     <div className="space-y-8">
       <section>

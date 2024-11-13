@@ -68,6 +68,28 @@
         "imageSrc": "/placeholder.svg?height=400&width=400"
       }
     },
+    "aeroAdvantage": {
+      "title": "The Aero Advantage",
+      "description": "Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap",
+      "priceText": "For only $450, train your kid to become an Aeruant Debater",
+      "locationSection": {
+        "title": "Location & Dates",
+        "imageSrc": "/placeholder.svg?height=300&width=500"
+      },
+      "teamTitle": "Our Team",
+      "teamMembers": [
+        {
+          "name": "Team Member Name",
+          "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+          "imageSrc": "/placeholder.svg?height=100&width=100"
+        },
+        {
+          "name": "Another Team Member",
+          "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+          "imageSrc": "/placeholder.svg?height=100&width=100"
+        }
+      ]
+    },
     "students": {
       "upcomingEvents": [
         {
@@ -165,27 +187,71 @@
         }
       ]
     },
-    "aeroAdvantage": {
-      "title": "The Aero Advantage",
-      "description": "Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap",
-      "priceText": "For only $450, train your kid to become an Aeruant Debater",
-      "locationSection": {
-        "title": "Location & Dates",
-        "imageUrl": "/placeholder.svg?height=300&width=500"
+    "parents": {
+      "support": {
+        "title": "Support EHS S&D",
+        "description": "Click here to support the Emerald High School Speech & Debate Club",
+        "link": "/"
       },
-      "teamTitle": "Our Team",
-      "teamMembers": [
-        {
-          "name": "Team Member Name",
-          "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-          "imageUrl": "/placeholder.svg?height=100&width=100"
-        },
-        {
-          "name": "Another Team Member",
-          "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-          "imageUrl": "/placeholder.svg?height=100&width=100"
-        }
-      ]
+      "judging": {
+        "title": "Judge Training",
+        "videoDescription": "Watch this video from a Judge Training session presented by DVSD sessions to learn about how to judge each event.",
+        "videoEmbedUrl": "https://www.youtube.com/embed/video-id",
+        "resourcesTitle": "Judging Resources",
+        "resources": [
+          {
+            "label": "CHSSA Judging Guide",
+            "href": "https://example.com/chssa-guide"
+          },
+          {
+            "label": "NSDA Judging Guide",
+            "href": "https://example.com/nsda-guide"
+          },
+          {
+            "label": "Invitationals Judging Guide",
+            "href": "https://example.com/invitational-guide"
+          }
+        ],
+        "trainingVideosTitle": "Judging Training Videos",
+        "trainingVideos": [
+          "How to Write a Good Paradigm",
+          "Judging Speech Events",
+          "Judging Debate Events"
+        ],
+        "ballotTitle": "Framing Your Ballot",
+        "ballotDescription": "The ballot is your platform to give the competitors feedback. Use it to share your decision and why one side prevailed.",
+        "ballotImage": "/ballot-example.jpg",
+        "paradigmTitle": "Setting Up a Paradigm",
+        "paradigmDescription": "Paradigms allow debaters to understand your preferences. Fill out your information in Tabroom under your account.",
+        "paradigmImage": "/paradigm-template.jpg",
+        "tabroomTitle": "Tabroom",
+        "tabroomDescription": "Access all tournament rounds, set up your paradigm, and submit ballots on Tabroom.",
+        "tabroomLink": "https://www.tabroom.com"
+      },
+      "mentor": {
+        "title": "Chaperone Sign up Instructions",
+        "videoSrc": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "clearanceInstructions": [
+          {
+            "title": "Level 2 Clearance",
+            "description": "You need this level of clearance in order to drive students to local tournaments and be a day chaperone. Clearance can take up to 10 days."
+          },
+          {
+            "title": "Level 3 Clearance",
+            "description": "You need this level of clearance in order to be an overnight chaperone at travel tournaments. Clearance can take up to 45 days."
+          }
+        ],
+        "additionalLinks": [
+          {
+            "text": "Create a Be A Mentor Account",
+            "href": "https://www.beamentor.org/linkpages/mentorasp/specialprojects/srvusd/Default.asp"
+          },
+          {
+            "text": "If you have a Be A Mentor account, click here to log in",
+            "href": "https://www.beamentor.org/login"
+          }
+        ]
+      }
     }
   }
 }

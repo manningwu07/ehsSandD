@@ -64,7 +64,7 @@ export default function SuccessStories({
               className="inline-block w-[450px] shrink-0 border-2 border-darkGreen shadow-lg transition-transform hover:scale-105"
             >
               <CardContent className="p-6">
-                <h3 className="mb-2 whitespace-normal text-xl font-semibold text-darkBlue">
+                <h3 className="mb-2 whitespace-normal text-xl font-semibold text-black">
                   "{story.quote}"
                 </h3>
                 <p className="whitespace-normal text-slate-600 my-4">

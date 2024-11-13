@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { ScrollArea } from '~/components/ui/scroll-area';
 import { Button } from '~/components/ui/button';
 import { fetchFullContent } from '~/utils/pageUtils';
+import initalContent from '~/content.json'
 import { DataStructure, transformFullContent } from '~/utils/dataStructure';
 import { renderEditField } from './renderEditField';
 import { DeployDialog } from './DeployDialog';
@@ -21,7 +22,8 @@ export default function AdminInterface() {
 
   useEffect(() => {
     async function loadFullContent() {
-      const fullContent = await fetchFullContent();
+      // const fullContent = await fetchFullContent();
+      const fullContent = initalContent;
       if (fullContent) {
         const formattedData: DataStructure = transformFullContent(fullContent);
         setData(formattedData as DataStructure);
@@ -89,7 +91,7 @@ export default function AdminInterface() {
           <div className="space-y-8 p-8">
             <ScrollArea className="w-full">
               <div className="flex pb-4 flex-wrap">
-                {['landing', 'about', 'board', 'parents', 'tournament', 'clubEvents'].map((page) => ( // Change this to page names
+                {['landing', 'aeroAdvantage', 'students', 'parents'].map((page) => ( // Change this to page names
                   <Button
                     key={page}
                     onClick={() => setActivePage(page)}

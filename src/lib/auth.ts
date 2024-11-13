@@ -17,7 +17,7 @@ export const signInWithGoogle = async (): Promise<UserCredential | void> => {
 
 // Function to check if user is an admin
 export const checkIfAdmin = async (userEmail: string) => {
-  const docRef = doc(db, 'dhsSpeechAndDebate', 'authorizedUsers');
+  const docRef = doc(db, 'ehsSpeechAndDebate', 'authorizedUsers');
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {

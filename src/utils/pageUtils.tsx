@@ -1,25 +1,13 @@
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "~/lib/firebase";
-import { openDB } from "idb"; // Import idb library for IndexedDB operations
+import { openDB } from "idb";
 import { DataStructure } from "./dataStructure";
-
-// This file is the most heavily modified file in the entire project. Be careful with this one
-
-// Change this to page names
-export type PullContentResult<T> =
-  T extends "all" ? DataStructure :                               // Entire DataStructure
-  T extends keyof DataStructure["pages"] ?                        // A single subset in pages
-    { [K in T]: DataStructure["pages"][K] } &                     // Wrap the subset in an object
-    (T extends "landing" | "about" | "tournament" ?               // Include components if field is landing, about, or tournament
-      { components: DataStructure["components"] } : {}) :
-  T extends "components" ? { components: DataStructure["components"] } : // Only components
-  never;
-
-
+import initalContent from "~/content.json"
 
 export interface PageProps {
-  content?: any;
+  adminContent?: DataStructure;
+  adminError?: boolean;
 }
 
 // Helper function to initialize IndexedDB
@@ -51,6 +39,7 @@ async function cacheData(field: string, data: any) {
   await db.put("pages", { key: field, data, timestamp: Date.now() });
 }
 
+// Function to check for circular references
 function hasCircularReference(obj: any, seen = new Set()) {
   if (obj && typeof obj === "object") {
     if (seen.has(obj)) return true;
@@ -63,18 +52,18 @@ function hasCircularReference(obj: any, seen = new Set()) {
   return false;
 }
 
-
-// Function to fetch the entire content document from Firestore (for Admin Interface)
-export async function fetchFullContent() {
+// Function to fetch the entire content document from Firestore and cache it
+export async function fetchFullContent(): Promise<DataStructure | null> {
   try {
-    const docRef = doc(db, "dhsSpeechAndDebate", "content"); // Change this to page names
+    const docRef = doc(db, "dhsSpeechAndDebate", "content");
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      const data = docSnap.data();
-      // Cache the full document in IndexedDB
+      const data = docSnap.data() as DataStructure;
+
+      // Cache the entire document in IndexedDB
       await cacheData("fullContent", data);
-      return data as DataStructure;
+      return data;
     } else {
       console.error("No such document in Firestore!");
       return null;
@@ -85,67 +74,46 @@ export async function fetchFullContent() {
   }
 }
 
-export function pullContent<T extends keyof DataStructure["pages"] | "components" | "all">( // Change this to page names
-  field: T,
-  providedContent?: PullContentResult<T>
-) {
-  const [content, setContent] = useState<PullContentResult<T> | undefined>(providedContent);
+// Custom hook to manage content state
+export function usePullContent() { 
+  const [content, setContent] = useState<DataStructure | null>(initalContent);
   const [error, setError] = useState<boolean>(false);
+  console.log("Pull content is working");
 
-  useEffect(() => {
-    async function loadContent() {
-      if (providedContent) {
-        setContent(providedContent);
-        return;
-      }
+  // useEffect(() => {
+  //   async function loadContent() {
+  //     // Try to load cached data first
+  //     const cachedData = await getCachedData("fullContent");
+  //     if (cachedData) {
+  //       // Check for circular reference in cached data
+  //       if (hasCircularReference(cachedData)) {
+  //         console.error("Circular reference detected in cached data:", cachedData);
+  //         setError(true);
+  //         return;
+  //       }
+  //       setContent(cachedData);
+  //     } else {
+  //       // Fetch from Firestore if no cached data
+  //       const data = await fetchFullContent();
+  //       if (data) {
+  //         // Check for circular reference in fetched data before caching
+  //         if (hasCircularReference(data)) {
+  //           console.error("Circular reference detected in fetched data:", data);
+  //           setError(true);
+  //           return;
+  //         }
 
-      const cachedData = await getCachedData(field);
-      if (cachedData) {
-        // Check for circular reference in cached data
-        if (hasCircularReference(cachedData)) {
-          console.error("Circular reference detected in cached data:", cachedData);
-          setError(true);
-          return;
-        }
-        setContent(cachedData as PullContentResult<T>);
-      } else {
-        const docRef = doc(db, "dhsSpeechAndDebate", "content");
-        const docSnap = await getDoc(docRef);
+  //         // Cache the data to IndexedDB
+  //         await cacheData("fullContent", JSON.parse(JSON.stringify(data)));
+  //         setContent(data);
+  //       } else {
+  //         setError(true);
+  //       }
+  //     }
+  //   }
 
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-
-          if (field === "all") {
-            setContent(data as PullContentResult<T>);
-            return;
-          }
-
-          let result: Partial<PullContentResult<T>> = {};
-          if (field in data) {
-            result = { ...result, [field]: data[field] } as PullContentResult<T>;
-          }
-          if ((field === "landing" || field === "about" || field === "tournament") && "components" in data) {
-            result = { ...result, components: data["components"] } as PullContentResult<T>;
-          }
-
-          // Check for circular reference in result before caching
-          if (hasCircularReference(result)) {
-            console.error("Circular reference detected in result before caching:", result);
-            setError(true);
-            return;
-          }
-
-          // Cache a deep-cloned result to avoid circular references
-          await cacheData(field, JSON.parse(JSON.stringify(result)));
-          setContent(result as PullContentResult<T>);
-        } else {
-          setError(true);
-        }
-      }
-    }
-
-    loadContent();
-  }, [field, providedContent]);
+  //   loadContent();
+  // }, []);
 
   return { content, error };
 }

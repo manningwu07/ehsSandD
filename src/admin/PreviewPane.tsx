@@ -1,12 +1,9 @@
-import { ScrollArea } from '~/components/ui/scroll-area';
-import LandingPage from '~/pages/LandingPage';
-import AboutPage from '~/pages/about';
-import BoardPage from '~/pages/board';
-import ParentsPage from '~/pages/parents';
-import TournamentPage from '~/pages/tournament';
-import ClubEventsPage from '~/pages/club-events';
-import { DataStructure } from '~/utils/dataStructure';
-import { PullContentResult } from '~/utils/pageUtils';
+import { ScrollArea } from "~/components/ui/scroll-area";
+import AeroAdvantage from "~/pages/AeroAdvantage";
+import LandingPage from "~/pages/LandingPage";
+import ParentsPage from "~/pages/parents";
+import StudentsPage from "~/pages/students";
+import { DataStructure } from "~/utils/dataStructure";
 
 interface PreviewPaneProps {
   data: DataStructure;
@@ -14,83 +11,27 @@ interface PreviewPaneProps {
   width: number;
 }
 
-export function PreviewPane({ data, activePage, width }: PreviewPaneProps) {
-// Change this to page names
+export function PreviewPane({data, activePage, width }: PreviewPaneProps) {
+  // Change this to page names
   const renderPreview = () => {
     switch (activePage) {
-      case 'landing':
+      case "landing":
+        return <LandingPage adminContent={data}/>;
+      case "aeroAdvantage":
         return (
-          <LandingPage
-            content={
-              {
-                landing: data.pages.landing,
-                components: data.components,
-              } as PullContentResult<'landing'>
-            }
-          />
+          <AeroAdvantage adminContent={data}/>
         );
-      case 'about':
+      case "students":
         return (
-          <AboutPage
-            content={
-              {
-                about: data.pages.about,
-                components: data.components,
-              } as PullContentResult<'about'>
-            }
-          />
+          <StudentsPage adminContent={data}/>
         );
-      case 'board':
+      case "parents":
         return (
-          <BoardPage
-            content={
-              {
-                board: data.pages.board,
-              } as PullContentResult<'board'>
-            }
-          />
-        );
-      case 'clubEvents':
-        return (
-          <ClubEventsPage
-            content={
-              {
-                clubEvents: data.pages.clubEvents,
-              } as PullContentResult<'clubEvents'>
-            }
-          />
-        );
-      case 'parents':
-        return (
-          <ParentsPage
-            content={
-              {
-                parents: data.pages.parents,
-              } as PullContentResult<'parents'>
-            }
-          />
-        );
-      case 'tournament':
-        return (
-          <TournamentPage
-            content={
-              {
-                tournament: data.pages.tournament,
-                components: data.components,
-              } as PullContentResult<'tournament'>
-            }
-          />
+          <ParentsPage adminContent={data}/>
         );
       default:
         return (
-          <LandingPage
-            content={
-              {
-                landing: data.pages.landing,
-                components: data.components,
-              } as PullContentResult<'landing'>
-            }
-          />
+          <LandingPage adminContent={data}/>
         );
     }
   };

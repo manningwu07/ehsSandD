@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Footer from "~/components/footer";
 import Navbar from "~/components/navbar";
 import Sidebar from "~/components/sidebar";
@@ -8,16 +8,33 @@ import { Heart, Gavel, Users } from "lucide-react";
 import Link from "next/link";
 import Judge from "~/components/parents/judge";
 import Mentor from "~/components/parents/mentor";
+import { PageProps, usePullContent } from "~/utils/pageUtils";
+import { DataStructure } from "~/utils/dataStructure";
 
-// Content variables
-const supportContent = {
-  title: "Support EHS S&D",
-  description:
-    "Click here to support the Emerald High School Speech & Debate Club",
-  link: "/",
-};
+export default function ParentsPage({ adminContent, adminError }: PageProps) {
+  const { content, error } =
+    adminContent 
+      ? { content: adminContent, error: adminError || false }
+      : usePullContent();
 
-export default function ParentsPage() {
+  if (error) {
+    // Display a fallback error message if Firestore fetch fails
+    return (
+      <div className="error-container">
+        <h1>Service Unavailable</h1>
+        <p>
+          We&apos;re experiencing issues retrieving content. Please try again
+          later.
+        </p>
+      </div>
+    );
+  }
+
+  if (!content) {
+    // Loading indicator while content is being fetched
+    return <div>Loading...</div>;
+  }
+
   const menuItems = [
     { label: "Support EHS S&D", icon: Heart },
     { label: "Judge Training", icon: Gavel },
@@ -29,13 +46,13 @@ export default function ParentsPage() {
   function renderContent() {
     switch (selectedSection) {
       case "support ehs s&d":
-        return <Support />;
+        return <Support supportContent={content?.pages.parents.support!} />;
       case "judge training":
-        return <Judge />;
+        return <Judge judgeContent={content?.pages.parents.judging!} />;
       case "chaperone signups":
-        return <Mentor />;
+        return <Mentor mentorContent={content?.pages.parents.mentor!} />;
       default:
-        return <Support />;
+        return <Support supportContent={content?.pages.parents.support!} />;
     }
   }
 
@@ -64,10 +81,16 @@ export default function ParentsPage() {
   );
 }
 
-function Support() {
+interface SupportContent {
+  supportContent: DataStructure["pages"]["parents"]["support"];
+}
+
+function Support({ supportContent }: SupportContent) {
   return (
     <div className="space-y-8">
-      <h1 className="text-5xl font-bold text-darkBlue text-center">Welcome, Parents!</h1>
+      <h1 className="text-center text-5xl font-bold text-darkBlue">
+        Welcome, Parents!
+      </h1>
 
       <section>
         <h2 className="text-center text-3xl font-semibold text-darkGreen">

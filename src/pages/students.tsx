@@ -9,9 +9,34 @@ import { Calendar, FileText, Info, ListTodo } from "lucide-react";
 import Events from "~/components/students/events";
 import CalendarPage from "~/components/students/calendar";
 import TournamentsPage from "~/components/students/tournaments";
+import { PageProps, usePullContent } from "~/utils/pageUtils";
+import { DataStructure } from "~/utils/dataStructure";
 
-export default function StudentsPage() {
+export default function ({ adminContent, adminError }: PageProps) {
+  const { content, error } =
+    adminContent 
+      ? { content: adminContent, error: adminError || false }
+      : usePullContent();
+      
   const [selectedSection, setSelectedSection] = useState("events");
+
+  if (error) {
+    // Display a fallback error message if Firestore fetch fails
+    return (
+      <div className="error-container">
+        <h1>Service Unavailable</h1>
+        <p>
+          We&apos;re experiencing issues retrieving content. Please try again
+          later.
+        </p>
+      </div>
+    );
+  }
+
+  if (!content) {
+    // Loading indicator while content is being fetched
+    return <div>Loading...</div>;
+  }
 
   const menuItems = [
     { label: "Events", icon: ListTodo },
@@ -23,15 +48,23 @@ export default function StudentsPage() {
   function renderContent() {
     switch (selectedSection) {
       case "events":
-        return <Events />;
+        return (
+          <Events upcomingEvents={content?.pages.students.upcomingEvents!} />
+        );
       case "calendar":
-        return <CalendarPage />;
+        return (
+          <CalendarPage
+            upcomingDates={content?.pages.students.upcomingDates!}
+          />
+        );
       case "tournament info":
-        return <TournamentsPage />;
+        return <TournamentsPage forms={content?.pages.students.forms!} />;
       case "resources":
-        return <ResourcesPage />;
+        return <ResourcesPage resources={content?.pages.students.resources!} />;
       default:
-        return <Events />;
+        return (
+          <Events upcomingEvents={content?.pages.students.upcomingEvents!} />
+        );
     }
   }
 
@@ -60,18 +93,11 @@ export default function StudentsPage() {
   );
 }
 
-function ResourcesPage() {
-  const resources = [
-    {
-      href: "https://www.google.com",
-      text: "Tournament Rules and Regulations",
-    },
-    { href: "https://www.google.com", text: "Public Speaking Tips" },
-    { href: "https://www.google.com", text: "Debate Strategies" },
-    { href: "https://www.google.com", text: "Research Resources" },
-    { href: "https://www.google.com", text: "Sample Debates and Analysis" },
-  ];
-
+function ResourcesPage({
+  resources,
+}: {
+  resources: DataStructure["pages"]["students"]["resources"];
+}) {
   return (
     <div className="space-y-4">
       <h1 className="text-3xl font-bold text-darkBlue">Resources</h1>
@@ -88,6 +114,8 @@ function ResourcesPage() {
           </li>
         ))}
       </ul>
+
+      {/* Add in an FAQ */}
     </div>
   );
 }

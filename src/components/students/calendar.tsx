@@ -1,25 +1,8 @@
 import { Calendar as CalendarIcon } from "lucide-react";
 import Image from "next/image";
+import { DataStructure } from "~/utils/dataStructure";
 
-const upcomingDates = [
-  {
-    date: "November 15",
-    event: "Stanford Invitational Registration Due",
-    type: "Deadline",
-  },
-  {
-    date: "November 20",
-    event: "Practice Tournament",
-    type: "Event",
-  },
-  {
-    date: "December 1",
-    event: "State Qualifiers Begin",
-    type: "Competition",
-  },
-];
-
-export default function CalendarPage() {
+export default function CalendarPage({upcomingDates}: {upcomingDates: DataStructure["pages"]["students"]["upcomingDates"]}) {
   return (
     <div className="grid gap-8 md:grid-cols-2">
       <div className="space-y-6">

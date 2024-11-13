@@ -5,46 +5,9 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 import Link from "next/link";
+import { DataStructure } from "~/utils/dataStructure";
 
-const upcomingEvents = [
-    {
-      date: "Feb 15",
-      title: "Join Louis",
-      description: "Tournament Preparation",
-      time: "3:30 PM",
-      buttonText: "RSVP",
-      details: {
-        location: "Online",
-        deadlines: {
-          signup: "Feb 15",
-          fees: "Feb 16",
-          drop: "Feb 17",
-        },
-        moreInfoLink: "https://www.google.com",
-        additionalInfo: "Yap yap",
-      },
-    },
-    {
-      date: "Feb 23",
-      title: "Glen Brooks Invitational",
-      description: "Mock Debate",
-      time: "4:00 PM",
-      buttonText: "RSVP",
-      details: {
-        location: "Online",
-        deadlines: {
-          signup: "Feb 15",
-          fees: "Feb 16",
-          drop: "Feb 17",
-        },
-        moreInfoLink: "https://www.google.com",
-        additionalInfo: "Yap yap",
-      },
-    },
-  ];
-  
-
-export default function Events() {
+export default function Events({upcomingEvents}: {upcomingEvents: DataStructure["pages"]["students"]["upcomingEvents"]}) {
   return (
     <div className="space-y-8">
       <h1 className="text-3xl font-bold text-darkBlue">Welcome, Debaters!</h1>
@@ -55,7 +18,7 @@ export default function Events() {
         </h2>
         <div className="space-y-4">
           {upcomingEvents.map((event, index) => (
-            <div className="rounded-lg bg-white p-4 shadow">
+            <div className="rounded-lg bg-white p-4 shadow" key={index}>
               <div className="mb-2 flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-darkBlue">

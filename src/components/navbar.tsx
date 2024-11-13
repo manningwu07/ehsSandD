@@ -33,7 +33,7 @@ export default function Navbar({ links }: NavbarProps) {
               <Link
                 key={index}
                 href={link.href}
-                className={`text-sm font-medium text-yellow-600 transition-colors hover:underline`}
+                className={`text-sm font-medium text-darkGreen transition-colors hover:underline`}
               >
                 {link.text}
               </Link>

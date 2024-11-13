@@ -3,17 +3,47 @@ import Image from "next/image";
 import Navbar from "~/components/navbar";
 import Footer from "~/components/footer";
 import navigation from "~/navigation.json";
-import content from "~/content.json";
+import { PageProps, usePullContent } from "~/utils/pageUtils";
 
-export default function AEROPage() {
-  const { title, description, priceText, locationSection, teamTitle, teamMembers } = content.pages.aeroAdvantage;
+export default function AEROPage({ adminContent, adminError }: PageProps) {
+  const { content, error } =
+    adminContent 
+      ? { content: adminContent, error: adminError || false }
+      : usePullContent();
+
+  if (error) {
+    // Display a fallback error message if Firestore fetch fails
+    return (
+      <div className="error-container">
+        <h1>Service Unavailable</h1>
+        <p>
+          We&apos;re experiencing issues retrieving content. Please try again
+          later.
+        </p>
+      </div>
+    );
+  }
+
+  if (!content) {
+    // Loading indicator while content is being fetched
+    return <div>Loading...</div>;
+  }
+
+  const {
+    title,
+    description,
+    priceText,
+    locationSection,
+    teamTitle,
+    teamMembers,
+  } = content.pages.aeroAdvantage;
 
   return (
     <>
       <Navbar {...navigation.navigation} />
       <div className="container mx-auto max-w-6xl px-4 py-12">
         <section className="mb-16 space-y-8">
-          <h1 className="text-4xl font-bold text-darkGreen md:text-5xl text-center">
+          <h1 className="text-center text-4xl font-bold text-darkGreen md:text-5xl">
             {title}
           </h1>
           <div className="grid items-center gap-8 md:grid-cols-2">
@@ -45,7 +75,12 @@ export default function AEROPage() {
           <h2 className="text-3xl font-bold text-darkBlue">{teamTitle}</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {teamMembers.map((member, index) => (
-              <TeamMember key={index} name={member.name} bio={member.bio} imageUrl={member.imageUrl} />
+              <TeamMember
+                key={index}
+                name={member.name}
+                bio={member.bio}
+                imageUrl={member.imageUrl}
+              />
             ))}
           </div>
         </section>

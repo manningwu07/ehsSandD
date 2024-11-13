@@ -1,24 +1,7 @@
 import { AlertCircle } from "lucide-react";
+import { DataStructure } from "~/utils/dataStructure";
 
-const forms = {
-  interest: [
-    "Stanford Invitational Interest Form",
-    "State Championships Interest Form",
-    "National Qualifiers Interest Form",
-  ],
-  competing: [
-    "Student Information Form",
-    "Parent/Guardian Consent Form",
-    "Travel Authorization Form",
-  ],
-  guidelines: [
-    "Submit all required documentation at least 2 weeks before the tournament",
-    "Ensure all forms are signed by both student and parent/guardian",
-    "Include all necessary medical and emergency contact information",
-  ],
-};
-
-export default function TournamentsPage() {
+export default function TournamentsPage({forms}: {forms: DataStructure["pages"]["students"]["forms"]}) {
   return (
     <div className="max-w-4xl space-y-8">
       <h1 className="text-3xl font-bold text-darkBlue">

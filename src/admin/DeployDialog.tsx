@@ -26,7 +26,7 @@ export function DeployDialog({ isOpen, setIsOpen, isDeploying, setIsDeploying, d
   const deployToFirebase = async () => {
     setIsDeploying(true);
     try {
-      const docRef = doc(db, 'dhsSpeechAndDebate', 'content'); // Change this to your Firestore collection name
+      const docRef = doc(db, 'ehsSpeechAndDebate', 'content'); // Change this to your Firestore collection name
       const docSnapshot = await getDoc(docRef);
 
       if (docSnapshot.exists() && data) {
@@ -36,11 +36,9 @@ export function DeployDialog({ isOpen, setIsOpen, isDeploying, setIsDeploying, d
           {
             components: data.components,
             landing: data.pages.landing,
-            about: data.pages.about,
-            board: data.pages.board,
-            clubEvents: data.pages.clubEvents,
-            parents: data.pages.parents,
-            tournament: data.pages.tournament,
+            aeroAdvantage: data.pages.aeroAdvantage,
+            students: data.pages.students,
+            parents: data.pages.parents
           },
           { merge: true },
         );
