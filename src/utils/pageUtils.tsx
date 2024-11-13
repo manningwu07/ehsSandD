@@ -12,7 +12,7 @@ export interface PageProps {
 
 // Helper function to initialize IndexedDB
 async function getDatabase() {
-  return openDB("contentCache", 1, {
+  return openDB("ehsContentCache", 1, {
     upgrade(db) {
       db.createObjectStore("pages", { keyPath: "key" });
     },
@@ -55,7 +55,7 @@ function hasCircularReference(obj: any, seen = new Set()) {
 // Function to fetch the entire content document from Firestore and cache it
 export async function fetchFullContent(): Promise<DataStructure | null> {
   try {
-    const docRef = doc(db, "dhsSpeechAndDebate", "content");
+    const docRef = doc(db, "ehsSpeechAndDebate", "content");
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -78,42 +78,42 @@ export async function fetchFullContent(): Promise<DataStructure | null> {
 export function usePullContent() { 
   const [content, setContent] = useState<DataStructure | null>(initalContent);
   const [error, setError] = useState<boolean>(false);
-  console.log("Pull content is working");
 
-  // useEffect(() => {
-  //   async function loadContent() {
-  //     // Try to load cached data first
-  //     const cachedData = await getCachedData("fullContent");
-  //     if (cachedData) {
-  //       // Check for circular reference in cached data
-  //       if (hasCircularReference(cachedData)) {
-  //         console.error("Circular reference detected in cached data:", cachedData);
-  //         setError(true);
-  //         return;
-  //       }
-  //       setContent(cachedData);
-  //     } else {
-  //       // Fetch from Firestore if no cached data
-  //       const data = await fetchFullContent();
-  //       if (data) {
-  //         // Check for circular reference in fetched data before caching
-  //         if (hasCircularReference(data)) {
-  //           console.error("Circular reference detected in fetched data:", data);
-  //           setError(true);
-  //           return;
-  //         }
+  useEffect(() => {
+    async function loadContent() {
+      // Try to load cached data first
+      const cachedData = await getCachedData("fullContent");
+      if (cachedData) {
+        // Check for circular reference in cached data
+        if (hasCircularReference(cachedData)) {
+          console.error("Circular reference detected in cached data:", cachedData);
+          setError(true);
+          return;
+        }
+        setContent(cachedData);
+      } else {
+        // Fetch from Firestore if no cached data
+        const data = await fetchFullContent();
+        if (data) {
+          // Check for circular reference in fetched data before caching
+          if (hasCircularReference(data)) {
+            console.error("Circular reference detected in fetched data:", data);
+            setError(true);
+            return;
+          }
 
-  //         // Cache the data to IndexedDB
-  //         await cacheData("fullContent", JSON.parse(JSON.stringify(data)));
-  //         setContent(data);
-  //       } else {
-  //         setError(true);
-  //       }
-  //     }
-  //   }
+          // Cache the data to IndexedDB
+          await cacheData("fullContent", JSON.parse(JSON.stringify(data)));
+          setContent(data);
+        } else {
+          setError(true);
+        }
+      }
+    }
 
-  //   loadContent();
-  // }, []);
+    loadContent();
+  }, []);
+
 
   return { content, error };
 }

@@ -2,7 +2,7 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import Image from "next/image";
 import { DataStructure } from "~/utils/dataStructure";
 
-export default function CalendarPage({upcomingDates}: {upcomingDates: DataStructure["pages"]["students"]["upcomingDates"]}) {
+export default function CalendarPage({upcomingDates}: {upcomingDates: DataStructure["students"]["upcomingDates"]}) {
   return (
     <div className="grid gap-8 md:grid-cols-2">
       <div className="space-y-6">

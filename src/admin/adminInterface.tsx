@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import { ScrollArea } from '~/components/ui/scroll-area';
-import { Button } from '~/components/ui/button';
-import { fetchFullContent } from '~/utils/pageUtils';
-import initalContent from '~/content.json'
-import { DataStructure, transformFullContent } from '~/utils/dataStructure';
-import { renderEditField } from './renderEditField';
-import { DeployDialog } from './DeployDialog';
-import { PreviewPane } from './PreviewPane';
-import { EmailManagementDialog } from './emailManagementDialog';
+import { useState, useEffect, useCallback } from "react";
+import { ScrollArea } from "~/components/ui/scroll-area";
+import { Button } from "~/components/ui/button";
+import initalContent from "~/content.json";
+import { DataStructure } from "~/utils/dataStructure";
+import { renderEditField } from "./renderEditField";
+import { DeployDialog } from "./DeployDialog";
+import { PreviewPane } from "./PreviewPane";
+import { EmailManagementDialog } from "./emailManagementDialog";
+import { fetchFullContent } from "~/utils/pageUtils";
 
 export default function AdminInterface() {
   const [data, setData] = useState<DataStructure | null>(null);
-  const [activePage, setActivePage] = useState('landing');
+  const [activePage, setActivePage] = useState("landing");
   const [sliderPosition, setSliderPosition] = useState(33);
   const [isDragging, setIsDragging] = useState(false);
   const [isDeploying, setIsDeploying] = useState(false);
@@ -22,14 +22,9 @@ export default function AdminInterface() {
 
   useEffect(() => {
     async function loadFullContent() {
-      // const fullContent = await fetchFullContent();
-      const fullContent = initalContent;
-      if (fullContent) {
-        const formattedData: DataStructure = transformFullContent(fullContent);
-        setData(formattedData as DataStructure);
-      } else {
-        console.error('Failed to load content for admin interface.');
-      }
+      const fullContent = await fetchFullContent();
+      // const fullContent = initalContent;
+      setData(fullContent as DataStructure);
     }
 
     loadFullContent();
@@ -58,11 +53,11 @@ export default function AdminInterface() {
   );
 
   useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
     };
   }, [handleMouseMove, handleMouseUp]);
 
@@ -72,7 +67,7 @@ export default function AdminInterface() {
 
   return (
     <div className="flex h-screen flex-col bg-gray-50">
-      <div className="border-b p-4 flex justify-between items-center">
+      <div className="flex items-center justify-between border-b p-4">
         <DeployDialog
           isOpen={isDialogOpen}
           setIsOpen={setIsDialogOpen}
@@ -87,29 +82,36 @@ export default function AdminInterface() {
       </div>
 
       <div className="flex flex-1 overflow-hidden">
-        <ScrollArea className="border-r" style={{ width: `${sliderPosition}%` }}>
+        <ScrollArea
+          className="border-r"
+          style={{ width: `${sliderPosition}%` }}
+        >
           <div className="space-y-8 p-8">
             <ScrollArea className="w-full">
-              <div className="flex pb-4 flex-wrap">
-                {['landing', 'aeroAdvantage', 'students', 'parents'].map((page) => ( // Change this to page names
-                  <Button
-                    key={page}
-                    onClick={() => setActivePage(page)}
-                    variant={activePage === page ? 'default' : 'outline'}
-                    className="m-2"
-                  >
-                    {page.charAt(0).toUpperCase() + page.slice(1)}
-                  </Button>
-                ))}
+              <div className="flex flex-wrap pb-4">
+                {["landing", "aeroAdvantage", "students", "parents"].map(
+                  (
+                    page, // Change this to page names
+                  ) => (
+                    <Button
+                      key={page}
+                      onClick={() => setActivePage(page)}
+                      variant={activePage === page ? "default" : "outline"}
+                      className="m-2"
+                    >
+                      {page.charAt(0).toUpperCase() + page.slice(1)}
+                    </Button>
+                  ),
+                )}
               </div>
             </ScrollArea>
             {data &&
               renderEditField(
-                `pages.${activePage}`,
-                data.pages[activePage as keyof typeof data.pages],
-                handleEdit
+                `${activePage}`,
+                data[activePage as keyof typeof data],
+                handleEdit,
               )}
-            {renderEditField('components', data.components, handleEdit)}
+            {renderEditField("components", data.components, handleEdit)}
           </div>
         </ScrollArea>
 
@@ -130,7 +132,7 @@ export default function AdminInterface() {
 
 function setNestedValue(obj: any, path: string, value: any) {
   const newObj = { ...obj };
-  const parts = path.split('.');
+  const parts = path.split(".");
   const last = parts.pop()!;
   const target = parts.reduce((acc, part) => acc[part], newObj);
   target[last] = value;

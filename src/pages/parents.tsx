@@ -46,13 +46,13 @@ export default function ParentsPage({ adminContent, adminError }: PageProps) {
   function renderContent() {
     switch (selectedSection) {
       case "support ehs s&d":
-        return <Support supportContent={content?.pages.parents.support!} />;
+        return <Support supportContent={content?.parents.support!} />;
       case "judge training":
-        return <Judge judgeContent={content?.pages.parents.judging!} />;
+        return <Judge judgeContent={content?.parents.judging!} />;
       case "chaperone signups":
-        return <Mentor mentorContent={content?.pages.parents.mentor!} />;
+        return <Mentor mentorContent={content?.parents.mentor!} />;
       default:
-        return <Support supportContent={content?.pages.parents.support!} />;
+        return <Support supportContent={content?.parents.support!} />;
     }
   }
 
@@ -82,7 +82,7 @@ export default function ParentsPage({ adminContent, adminError }: PageProps) {
 }
 
 interface SupportContent {
-  supportContent: DataStructure["pages"]["parents"]["support"];
+  supportContent: DataStructure["parents"]["support"];
 }
 
 function Support({ supportContent }: SupportContent) {

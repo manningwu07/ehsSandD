@@ -6,7 +6,7 @@ import { DataStructure } from "~/utils/dataStructure";
 export default function JudgeTrainingPage({
   judgeContent,
 }: {
-  judgeContent: DataStructure["pages"]["parents"]["judging"];
+  judgeContent: DataStructure["parents"]["judging"];
 }) {
   return (
     <>

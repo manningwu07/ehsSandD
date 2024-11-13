@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { DataStructure } from "~/utils/dataStructure";
 
-export default function Mentor({mentorContent}: {mentorContent: DataStructure["pages"]["parents"]["mentor"]}) {
+export default function Mentor({mentorContent}: {mentorContent: DataStructure["parents"]["mentor"]}) {
   return (
     <div className="space-y-8">
       <section>

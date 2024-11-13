@@ -49,21 +49,21 @@ export default function ({ adminContent, adminError }: PageProps) {
     switch (selectedSection) {
       case "events":
         return (
-          <Events upcomingEvents={content?.pages.students.upcomingEvents!} />
+          <Events upcomingEvents={content?.students.upcomingEvents!} />
         );
       case "calendar":
         return (
           <CalendarPage
-            upcomingDates={content?.pages.students.upcomingDates!}
+            upcomingDates={content?.students.upcomingDates!}
           />
         );
       case "tournament info":
-        return <TournamentsPage forms={content?.pages.students.forms!} />;
+        return <TournamentsPage forms={content?.students.forms!} />;
       case "resources":
-        return <ResourcesPage resources={content?.pages.students.resources!} />;
+        return <ResourcesPage resources={content?.students.resources!} />;
       default:
         return (
-          <Events upcomingEvents={content?.pages.students.upcomingEvents!} />
+          <Events upcomingEvents={content?.students.upcomingEvents!} />
         );
     }
   }
@@ -96,7 +96,7 @@ export default function ({ adminContent, adminError }: PageProps) {
 function ResourcesPage({
   resources,
 }: {
-  resources: DataStructure["pages"]["students"]["resources"];
+  resources: DataStructure["students"]["resources"];
 }) {
   return (
     <div className="space-y-4">

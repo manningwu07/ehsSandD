@@ -1,7 +1,7 @@
 import { AlertCircle } from "lucide-react";
 import { DataStructure } from "~/utils/dataStructure";
 
-export default function TournamentsPage({forms}: {forms: DataStructure["pages"]["students"]["forms"]}) {
+export default function TournamentsPage({forms}: {forms: DataStructure["students"]["forms"]}) {
   return (
     <div className="max-w-4xl space-y-8">
       <h1 className="text-3xl font-bold text-darkBlue">

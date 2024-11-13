@@ -36,7 +36,7 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
     locationSection,
     teamTitle,
     teamMembers,
-  } = content.pages.aeroAdvantage;
+  } = content.aeroAdvantage;
 
   return (
     <>
@@ -61,7 +61,7 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
                 {locationSection.title}
               </h2>
               <Image
-                src={locationSection.imageUrl}
+                src={locationSection.imageSrc}
                 alt="Program location"
                 width={500}
                 height={300}
@@ -79,7 +79,7 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
                 key={index}
                 name={member.name}
                 bio={member.bio}
-                imageUrl={member.imageUrl}
+                imageSrc={member.imageSrc}
               />
             ))}
           </div>
@@ -90,12 +90,12 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
   );
 }
 
-function TeamMember({ name, bio, imageUrl }) {
+function TeamMember({ name, bio, imageSrc }) {
   return (
     <div className="flex items-start gap-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
       <div className="relative flex-shrink-0">
         <Image
-          src={imageUrl}
+          src={imageSrc}
           alt={name}
           width={100}
           height={100}

@@ -7,7 +7,7 @@ import {
 import Link from "next/link";
 import { DataStructure } from "~/utils/dataStructure";
 
-export default function Events({upcomingEvents}: {upcomingEvents: DataStructure["pages"]["students"]["upcomingEvents"]}) {
+export default function Events({upcomingEvents}: {upcomingEvents: DataStructure["students"]["upcomingEvents"]}) {
   return (
     <div className="space-y-8">
       <h1 className="text-3xl font-bold text-darkBlue">Welcome, Debaters!</h1>

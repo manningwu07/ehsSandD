@@ -41,10 +41,10 @@ export default function LandingPage({ adminContent, adminError }: PageProps) {
       <Navbar {...navigation.navigation} />
       <main className="mx-auto px-2 pb-6 sm:px-4 lg:px-6 2xl:px-8">
         <Hero {...content.components.hero} />
-        <WhyJoin {...content.pages.landing.whyJoin} />
-        <WhatYouGet {...content.pages.landing.whatYouGet} />
-        <Testimonials {...content.pages.landing.testimonials} />
-        <CTA {...content.pages.landing.cta} />
+        <WhyJoin {...content.landing.whyJoin} />
+        <WhatYouGet {...content.landing.whatYouGet} />
+        <Testimonials {...content.landing.testimonials} />
+        <CTA {...content.landing.cta} />
       </main>
       <Footer {...navigation} />
     </div>

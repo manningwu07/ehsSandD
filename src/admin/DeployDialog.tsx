@@ -35,10 +35,10 @@ export function DeployDialog({ isOpen, setIsOpen, isDeploying, setIsDeploying, d
           docRef,
           {
             components: data.components,
-            landing: data.pages.landing,
-            aeroAdvantage: data.pages.aeroAdvantage,
-            students: data.pages.students,
-            parents: data.pages.parents
+            landing: data.landing,
+            aeroAdvantage: data.aeroAdvantage,
+            students: data.students,
+            parents: data.parents
           },
           { merge: true },
         );
