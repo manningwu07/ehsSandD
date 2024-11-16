@@ -13,7 +13,6 @@ const AdminAuth = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       const handleAuthStateChange = async () => {
-        console.log("handleAuthStateChange");
         setLoading(true);
   
         if (user) {

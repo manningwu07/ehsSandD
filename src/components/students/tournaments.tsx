@@ -1,7 +1,7 @@
 import { AlertCircle } from "lucide-react";
 import { DataStructure } from "~/utils/dataStructure";
 
-export default function TournamentsPage({forms}: {forms: DataStructure["students"]["forms"]}) {
+export default function TournamentsPage({tournamentInfo}: {tournamentInfo: DataStructure["students"]["tournamentInfo"]}) {
   return (
     <div className="max-w-4xl space-y-8">
       <h1 className="text-3xl font-bold text-darkBlue">
@@ -14,10 +14,10 @@ export default function TournamentsPage({forms}: {forms: DataStructure["students
             Tournament Interest Forms
           </h2>
           <ul className="space-y-2">
-            {forms.interest.map((form, index) => (
+            {tournamentInfo.interest.map((form, index) => (
               <li key={index} className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-darkGreen" />
-                <span>{form}</span>
+                <span>{form.paragraph}</span>
               </li>
             ))}
           </ul>
@@ -28,10 +28,10 @@ export default function TournamentsPage({forms}: {forms: DataStructure["students
             Forms for Competing
           </h2>
           <ul className="space-y-2">
-            {forms.competing.map((form, index) => (
+            {tournamentInfo.competing.map((form, index) => (
               <li key={index} className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-darkGreen" />
-                <span>{form}</span>
+                <span>{form.paragraph}</span>
               </li>
             ))}
           </ul>
@@ -42,9 +42,9 @@ export default function TournamentsPage({forms}: {forms: DataStructure["students
             Submission Guidelines
           </h2>
           <ul className="ml-4 list-inside list-decimal space-y-2">
-            {forms.guidelines.map((guideline, index) => (
+            {tournamentInfo.guidelines.map((guideline, index) => (
               <li key={index} className="text-gray-600">
-                {guideline}
+                {guideline.paragraph}
               </li>
             ))}
           </ul>

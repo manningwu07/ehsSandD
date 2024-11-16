@@ -145,21 +145,21 @@
       }
     ],
 
-    "forms": {
+    "tournamentInfo": {
       "interest": [
-        "Stanford Invitational Interest Form",
-        "State Championships Interest Form",
-        "National Qualifiers Interest Form"
+        {"paragraph": "State Championships Interest Form"},
+        {"paragraph": "National Qualifiers Interest Form"},
+        {"paragraph": "State Invitationals Interest Form"}
       ],
       "competing": [
-        "Student Information Form",
-        "Parent/Guardian Consent Form",
-        "Travel Authorization Form"
+        {"paragraph": "Student Information Form"},
+        {"paragraph": "Parent/Guardian Consent Form"},        
+        {"paragraph": "Travel Authorization Form"}
       ],
       "guidelines": [
-        "Submit all required documentation at least 2 weeks before the tournament",
-        "Ensure all forms are signed by both student and parent/guardian",
-        "Include all necessary medical and emergency contact information"
+        {"paragraph": "Submit all required documentation at least 2 weeks before the tournament"},
+        {"paragraph": "Ensure all forms are signed by both student and parent/guardian"},
+        {"paragraph": "Include all necessary medical and emergency contact information"}
       ]
     },
 

@@ -94,10 +94,10 @@ export interface DataStructure {
       event: string;
       type: string;
     }[];
-    forms: {
-      interest: string[];
-      competing: string[];
-      guidelines: string[];
+    tournamentInfo: {
+      interest: {paragraph: string}[];
+      competing: {paragraph: string}[];
+      guidelines: {paragraph: string}[];
     };
     resources: {
       href: string;
