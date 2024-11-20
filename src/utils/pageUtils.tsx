@@ -76,7 +76,7 @@ export async function fetchFullContent(): Promise<DataStructure | null> {
 
 // Custom hook to manage content state
 export function usePullContent() { 
-  const [content, setContent] = useState<DataStructure | null>(initalContent);
+  const [content, setContent] = useState<DataStructure | null>(null);
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
@@ -90,10 +90,13 @@ export function usePullContent() {
           setError(true);
           return;
         }
+        // console.log("Hits cached data")
         setContent(cachedData);
       } else {
         // Fetch from Firestore if no cached data
         const data = await fetchFullContent();
+        // console.log("Hits firebase fetch data");
+        // console.log("Data", data);
         if (data) {
           // Check for circular reference in fetched data before caching
           if (hasCircularReference(data)) {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DataStructure } from "~/utils/dataStructure";
+import type { DataStructure } from "~/utils/dataStructure";
 
 export default function Mentor({mentorContent}: {mentorContent: DataStructure["parents"]["mentor"]}) {
   return (

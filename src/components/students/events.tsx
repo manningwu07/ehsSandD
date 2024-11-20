@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 import Link from "next/link";
-import { DataStructure } from "~/utils/dataStructure";
+import type { DataStructure } from "~/utils/dataStructure";
 
 export default function Events({upcomingEvents}: {upcomingEvents: DataStructure["students"]["upcomingEvents"]}) {
   return (

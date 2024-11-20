@@ -18,6 +18,7 @@ export default function ({ adminContent, adminError }: PageProps) {
       ? { content: adminContent, error: adminError || false }
       : usePullContent();
       
+  // console.log("content", content);
   const [selectedSection, setSelectedSection] = useState("events");
 
   if (error) {
@@ -58,7 +59,7 @@ export default function ({ adminContent, adminError }: PageProps) {
           />
         );
       case "tournament info":
-        return <TournamentsPage forms={content?.students.forms!} />;
+        return <TournamentsPage tournamentInfo={content?.students.tournamentInfo!} />;
       case "resources":
         return <ResourcesPage resources={content?.students.resources!} />;
       default:

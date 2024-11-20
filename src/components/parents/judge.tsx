@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BookOpenIcon, VideoIcon } from "lucide-react";
-import { DataStructure } from "~/utils/dataStructure";
+import type { DataStructure } from "~/utils/dataStructure";
 
 export default function JudgeTrainingPage({
   judgeContent,
@@ -73,7 +73,7 @@ function VideoSection({ description, embedUrl }) {
 }
 
 // Reusable Component for List of Resource Links
-function ResourceLinks({ title, links }) {
+function ResourceLinks({ title, links }: {title: string, links: DataStructure["parents"]["judging"]["resources"]}) {
   return (
     <section className="space-y-8">
       <h2 className="text-center text-3xl font-bold">{title}</h2>
@@ -94,7 +94,7 @@ function ResourceLinks({ title, links }) {
 }
 
 // Reusable Video List Component for Judging Training Videos
-function VideoList({ title, videos }) {
+function VideoList({ title, videos }: {title: string, videos: DataStructure["parents"]["judging"]["trainingVideos"]}) {
   return (
     <section className="container mx-auto max-w-4xl space-y-4">
       <h2 className="text-center text-3xl font-bold">{title}</h2>

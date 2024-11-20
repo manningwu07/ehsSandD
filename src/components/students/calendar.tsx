@@ -1,6 +1,6 @@
 import { Calendar as CalendarIcon } from "lucide-react";
 import Image from "next/image";
-import { DataStructure } from "~/utils/dataStructure";
+import type { DataStructure } from "~/utils/dataStructure";
 
 export default function CalendarPage({upcomingDates}: {upcomingDates: DataStructure["students"]["upcomingDates"]}) {
   return (

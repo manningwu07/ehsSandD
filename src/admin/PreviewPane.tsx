@@ -3,7 +3,7 @@ import AeroAdvantage from "~/pages/AeroAdvantage";
 import LandingPage from "~/pages/LandingPage";
 import ParentsPage from "~/pages/parents";
 import StudentsPage from "~/pages/students";
-import { DataStructure } from "~/utils/dataStructure";
+import type { DataStructure } from "~/utils/dataStructure";
 
 interface PreviewPaneProps {
   data: DataStructure;

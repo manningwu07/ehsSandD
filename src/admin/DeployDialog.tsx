@@ -12,7 +12,7 @@ import {
 import { Alert, AlertDescription, AlertTitle } from '~/components/ui/alert';
 import { db } from '~/lib/firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { DataStructure } from '~/utils/dataStructure';
+import type { DataStructure } from '~/utils/dataStructure';
 
 interface DeployDialogProps {
   isOpen: boolean;

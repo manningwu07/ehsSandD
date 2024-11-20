@@ -1,5 +1,5 @@
 import { AlertCircle } from "lucide-react";
-import { DataStructure } from "~/utils/dataStructure";
+import type { DataStructure } from "~/utils/dataStructure";
 
 export default function TournamentsPage({tournamentInfo}: {tournamentInfo: DataStructure["students"]["tournamentInfo"]}) {
   return (

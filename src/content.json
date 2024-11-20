@@ -126,7 +126,6 @@
         }
       }
     ],
-
     "upcomingDates": [
       {
         "date": "November 15",
@@ -144,7 +143,6 @@
         "type": "Competition"
       }
     ],
-
     "tournamentInfo": {
       "interest": [
         {"paragraph": "State Championships Interest Form"},
