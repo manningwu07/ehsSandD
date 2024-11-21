@@ -1,6 +1,6 @@
 // auth.ts
 import { auth, googleProvider } from "./firebase";
-import { signInWithPopup, UserCredential } from "firebase/auth";
+import { signInWithPopup, type UserCredential } from "firebase/auth";
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 const db = getFirestore();
@@ -21,9 +21,9 @@ export const checkIfAdmin = async (userEmail: string) => {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    const adminEmails = docSnap.data()?.admin || [];
-    const ownerEmail = docSnap.data()?.owner;
-    return adminEmails.includes(userEmail) || ownerEmail === userEmail;
+    const adminEmails = docSnap.data()?.admin as string[] || [];
+    const ownerEmail = docSnap.data()?.owner as string; 
+    return adminEmails.includes(userEmail) || ownerEmail === userEmail; 
   }
   return false;
 };

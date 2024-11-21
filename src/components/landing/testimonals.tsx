@@ -6,13 +6,11 @@ import type { Testimonial } from "~/types/landing";
 
 interface TestimonialsProps {
   title: string;
-  subtitle: string;
   items: Testimonial[];
 }
 
 export default function SuccessStories({
   title,
-  subtitle,
   items,
 }: TestimonialsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -65,7 +63,7 @@ export default function SuccessStories({
             >
               <CardContent className="p-6">
                 <h3 className="mb-2 whitespace-normal text-xl font-semibold text-black">
-                  "{story.quote}"
+                  &quot;{story.quote}&quot;
                 </h3>
                 <p className="whitespace-normal text-slate-600 my-4">
                   - {story.author}

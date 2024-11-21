@@ -20,34 +20,6 @@ export function renderEditField(
         {value.map((item, index) => (
           <div key={index} className="relative rounded-lg bg-white p-4 shadow">
             {renderEditField(`${path}.${index}`, item, handleEdit, depth + 1)}
-            {/* {Object.entries(item).map(([key, val]) => (
-              <div key={key} className="mb-4">
-                <label className="mb-2 block text-sm font-medium capitalize">
-                  {key.split(/(?=[A-Z])/).join(' ')}
-                </label>
-                {typeof val === 'string' && isImageField(`${path}.${key}`) ? (
-                  <ImageUpload
-                    currentSrc={val}
-                    onUpload={(url) => {
-                      const newArray = [...value];
-                      newArray[index] = { ...item, [key]: url };
-                      handleEdit(path, newArray);
-                    }}
-                    path={`${path}.${key}`}
-                  />
-                ) : (
-                  <textarea
-                    value={val as string}
-                    onChange={(e) => {
-                      const newArray = [...value];
-                      newArray[index] = { ...item, [key]: e.target.value };
-                      handleEdit(path, newArray);
-                    }}
-                    className="focus:ring-blue-500 min-h-[100px] w-full rounded-lg border p-3 focus:ring-2"
-                  />
-                )}
-              </div>
-            ))} */}
             <Button
               onClick={() => {
                 const newArray = value.filter((_, i) => i !== index);
@@ -97,6 +69,12 @@ export function renderEditField(
                     // If parent ends with 's', remove it and add the number
                     if (parentPart?.endsWith("s")) {
                       return `${parentPart.slice(0, -1)} ${Number(currentPart) + 1}`;
+                    } else {
+                      const formattedParentPart = parentPart!
+                        .replace(/([A-Z])/g, " $1")
+                        .trim();
+
+                      return `${formattedParentPart} item ${Number(currentPart) + 1}`;
                     }
                   }
                   return currentPart.split(/(?=[A-Z])/).join(" ");
@@ -108,9 +86,6 @@ export function renderEditField(
             <div className="space-y-4">
               {Object.entries(value).map(([key, val]) => (
                 <div key={key}>
-                  {/* <label className="mb-2 block text-sm font-medium capitalize">
-                    {key.split(/(?=[A-Z])/).join(' ')}
-                  </label> */}
                   {typeof val === "string" && isImageField(`${path}.${key}`) ? (
                     <ImageUpload
                       currentSrc={val}

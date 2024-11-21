@@ -5,14 +5,14 @@ import Testimonials from "~/components/landing/testimonals";
 import Navbar from "~/components/navbar";
 import WhyJoin from "~/components/landing/WhyJoin";
 import WhatYouGet from "~/components/landing/WhatYouGet";
-import { PageProps, usePullContent } from "~/utils/pageUtils";
+import { type PageProps, usePullContent } from "~/utils/pageUtils";
 import navigation from "~/navigation.json";
 
 export default function LandingPage({ adminContent, adminError }: PageProps) {
-  const { content, error } =
-    adminContent 
-      ? { content: adminContent, error: adminError || false }
-      : usePullContent();
+  const pullContent = usePullContent(); // Unconditionally call the hook
+
+  const content = adminContent ?? pullContent.content;
+  const error = adminError ?? pullContent.error;
 
   if (error) {
     // Display a fallback error message if Firestore fetch fails

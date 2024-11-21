@@ -3,14 +3,14 @@ import Image from "next/image";
 import Navbar from "~/components/navbar";
 import Footer from "~/components/footer";
 import navigation from "~/navigation.json";
-import { PageProps, usePullContent } from "~/utils/pageUtils";
+import { type PageProps, usePullContent } from "~/utils/pageUtils";
 
 export default function AEROPage({ adminContent, adminError }: PageProps) {
-  const { content, error } =
-    adminContent 
-      ? { content: adminContent, error: adminError || false }
-      : usePullContent();
+  const pullContent = usePullContent(); // Unconditionally call the hook
 
+  const content = adminContent ?? pullContent.content;
+  const error = adminError ?? pullContent.error;
+  
   if (error) {
     // Display a fallback error message if Firestore fetch fails
     return (

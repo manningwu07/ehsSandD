@@ -9,14 +9,14 @@ import { Calendar, FileText, Info, ListTodo } from "lucide-react";
 import Events from "~/components/students/events";
 import CalendarPage from "~/components/students/calendar";
 import TournamentsPage from "~/components/students/tournaments";
-import { PageProps, usePullContent } from "~/utils/pageUtils";
-import { DataStructure } from "~/utils/dataStructure";
+import { type PageProps, usePullContent } from "~/utils/pageUtils";
+import type { DataStructure } from "~/utils/dataStructure";
 
-export default function ({ adminContent, adminError }: PageProps) {
-  const { content, error } =
-    adminContent 
-      ? { content: adminContent, error: adminError || false }
-      : usePullContent();
+export default function StudentsPage({ adminContent, adminError }: PageProps) {
+  const pullContent = usePullContent(); // Unconditionally call the hook
+
+  const content = adminContent ?? pullContent.content;
+  const error = adminError ?? pullContent.error;
       
   // console.log("content", content);
   const [selectedSection, setSelectedSection] = useState("events");
@@ -47,24 +47,29 @@ export default function ({ adminContent, adminError }: PageProps) {
   ];
 
   function renderContent() {
+    if (!content) {
+      // Loading indicator while content is being fetched
+      return <div>Loading...</div>;
+    }
+
     switch (selectedSection) {
       case "events":
         return (
-          <Events upcomingEvents={content?.students.upcomingEvents!} />
+          <Events upcomingEvents={content.students.upcomingEvents} />
         );
       case "calendar":
         return (
           <CalendarPage
-            upcomingDates={content?.students.upcomingDates!}
+            upcomingDates={content.students.upcomingDates}
           />
         );
       case "tournament info":
-        return <TournamentsPage tournamentInfo={content?.students.tournamentInfo!} />;
+        return <TournamentsPage tournamentInfo={content.students.tournamentInfo} />;
       case "resources":
-        return <ResourcesPage resources={content?.students.resources!} />;
+        return <ResourcesPage resources={content.students.resources} />;
       default:
         return (
-          <Events upcomingEvents={content?.students.upcomingEvents!} />
+          <Events upcomingEvents={content.students.upcomingEvents} />
         );
     }
   }

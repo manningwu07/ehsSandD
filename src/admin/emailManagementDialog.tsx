@@ -24,17 +24,23 @@ export function EmailManagementDialog({ isOpen, setIsOpen }: EmailManagementDial
   const [emailInput, setEmailInput] = useState('');
 
   useEffect(() => {
-    fetchEmails();
-  }, []);
+    const fetchEmails = async (): Promise<string[]> => {
+      const docRef = doc(db, 'ehsSpeechAndDebate', 'authorizedUsers'); // Change this to your Firestore collection name
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        return data.admin || [];
+      }
+      return []; // Default to empty array if no data exists
+    };
 
-  const fetchEmails = async () => {
-    const docRef = doc(db, 'ehsSpeechAndDebate', 'authorizedUsers'); // Change this to your Firestore collection name
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      const data = docSnap.data();
-      setEmails(data.admin || []);
-    }
-  };
+    fetchEmails().then((emails) => setEmails(emails)).catch(
+      (error) => {
+        console.error('Error fetching emails:', error);
+        setEmails([]);
+      }
+    );
+  }, []);  
 
   const addEmail = async () => {
     if (emailInput && !emails.includes(emailInput)) {

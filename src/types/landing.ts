@@ -1,6 +1,6 @@
 // Main content types
 
-import { HeroSection } from "./components";
+import { type HeroSection } from "./components";
 
 export type Feature = {
   title: string;

@@ -3,12 +3,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import { Button } from "~/components/ui/button";
-import initalContent from "~/content.json";
 import type { DataStructure } from "~/utils/dataStructure";
 import { renderEditField } from "./renderEditField";
 import { DeployDialog } from "./DeployDialog";
 import { PreviewPane } from "./PreviewPane";
 import { EmailManagementDialog } from "./emailManagementDialog";
+import { fetchFullContent } from "~/utils/pageUtils";
+// import initalContent from "~/content.json";
 
 export default function AdminInterface() {
   const [data, setData] = useState<DataStructure | null>(null);
@@ -21,13 +22,21 @@ export default function AdminInterface() {
 
   useEffect(() => {
     async function loadFullContent() {
-      // const fullContent = await fetchFullContent();
-      const fullContent = initalContent;
-      console.log("Full Content", fullContent);
-      setData(fullContent as DataStructure);
+      const fullContent = await fetchFullContent();
+      if(!fullContent) {
+        throw new Error("Failed to load full content");
+      }
+      return fullContent;
     }
 
-    loadFullContent();
+    loadFullContent()
+      .then((fullContent) => {
+        setData(fullContent);
+      })
+      .catch((error) => {
+        console.error("Error loading full content:", error);
+        setData(null);
+      });
   }, []);
 
   const handleEdit = (path: string, value: any) => {
