@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ehsspeechdebate.com/sitemap.xml
+Sitemap: https://ehsspeechanddebate.netlify.app/sitemap.xml
