@@ -4,13 +4,15 @@ import Navbar from "~/components/navbar";
 import Footer from "~/components/footer";
 import navigation from "~/navigation.json";
 import { type PageProps, usePullContent } from "~/utils/pageUtils";
+import PhotoGallery from "~/components/gallary";
+import Link from "next/link";
 
 export default function AEROPage({ adminContent, adminError }: PageProps) {
   const pullContent = usePullContent(); // Unconditionally call the hook
 
   const content = adminContent ?? pullContent.content;
   const error = adminError ?? pullContent.error;
-  
+
   if (error) {
     // Display a fallback error message if Firestore fetch fails
     return (
@@ -52,23 +54,39 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
               <p className="text-4xl text-gray-700">
                 <span className="font-bold text-darkGreen">{priceText}</span>
               </p>
-              <Button className="rounded-full bg-darkGreen px-8 py-6 text-lg text-white hover:bg-darkGreen/90">
-                Sign up now
-              </Button>
+              <div className="flex justify-center md:block">
+                <Link href="/" className="mx-auto md:mx-0">
+                  <Button className="mt-6 rounded-full bg-darkGreen px-8 py-6 text-lg text-white hover:bg-darkGreen/90">
+                    Sign up now
+                  </Button>
+                </Link>
+              </div>
             </div>
-            <div className="rounded-lg bg-gray-100 p-8">
-              <h2 className="mb-4 text-2xl font-semibold text-darkBlue">
-                {locationSection.title}
-              </h2>
-              <Image
+            <div className="mx-auto h-[300px] w-[500px] rounded-lg bg-gray-100 p-8 md:mx-0">
+              <PhotoGallery
+                photos={[
+                  { imageSrc: "/landing/ehsBackground.png" },
+                  { imageSrc: locationSection.imageSrc },
+                  { imageSrc: "/logo.png" },
+                ]}
+                duration={2000}
+              />
+
+              {/* <Image
                 src={locationSection.imageSrc}
                 alt="Program location"
                 width={500}
                 height={300}
                 className="w-full rounded-lg"
-              />
+              /> */}
             </div>
           </div>
+        </section>
+
+        <section id="location and dates" className="space-y-8">
+          <h2 className="text-3xl font-bold text-darkBlue">
+            {locationSection.title}
+          </h2>
         </section>
 
         <section className="space-y-8">

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import type { HeroSection } from "~/types/components";
+import PhotoGallery from "../gallary";
 
 export default function Hero({
   title,
@@ -40,16 +41,24 @@ export default function Hero({
 
       {/* School building background */}
       <div className="absolute inset-0 h-full w-full">
-        <Image
+        <PhotoGallery
+          photos={[
+            { imageSrc: "/landing/ehsBackground.png" },
+            { imageSrc: "/landing/Homepage.webp" },
+            { imageSrc: "/logo.png" },
+          ]}
+          duration={2000}
+        />
+
+        {/* <Image
           src="/landing/ehsBackground.png"
           alt="Emerald High School"
           fill
           className="rounded-3xl object-cover"
           priority
-        />
+        /> */}
         <div className="from-background via-background/95 to-background/90 absolute inset-0 bg-gradient-to-t" />
       </div>
-
       <div className="container relative mx-auto max-w-3xl px-4 md:px-6">
         {/* Dragon with fire animation */}
         <motion.div
@@ -81,7 +90,7 @@ export default function Hero({
           </div>
         </motion.div>
 
-        <div className="flex flex-col justify-center space-y-4 rounded-lg bg-darkBlue/10 p-4 backdrop-blur-3xl sm:p-6 md:p-8 lg:p-10 xl:p-12">
+        <div className="flex flex-col justify-center space-y-4 rounded-lg bg-zinc-200/40 p-4 backdrop-blur-3xl sm:p-6 md:p-8 lg:p-10 xl:p-12">
           <div className="space-y-2 text-center">
             <h1 className="text-3xl font-bold tracking-tighter text-darkGreen sm:text-4xl lg:text-5xl xl:text-6xl/none">
               {title}
