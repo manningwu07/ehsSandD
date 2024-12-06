@@ -7,6 +7,7 @@ import { usePullContent, type PageProps } from "~/utils/pageUtils";
 import navigation from "~/navigation.json";
 import { Card } from "~/components/ui/card";
 import Image from "next/image";
+import FAQSection from "~/components/faq";
 
 export default function BoardPageLandingPage({
   adminContent,
@@ -52,25 +53,25 @@ export default function BoardPageLandingPage({
   return (
     <div className="min-h-screen overflow-hidden text-black">
       <Navbar {...navigation.navigation} />
-      <div className="px-4 py-12 md:px-8">
-        <div id="mission-statement" className="mb-20">
-          <Card className="overflow-hidden">
-            <div className="grid items-center gap-6 p-6 md:grid-cols-2">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-bold tracking-tight">{missionTitle}</h2>
-                <p className="text-muted-foreground">{missionDescription}</p>
-              </div>
-              <div className="relative h-[200px] overflow-hidden rounded-lg md:h-[300px]">
-                <Image
-                  src={missionImage}
-                  alt="Mission illustration"
-                  width={600}
-                  height={600}
-                  className="object-cover"
-                />
-              </div>
+      <div className="px-4 py-12 md:px-8 lg:px-16 2xl:px-20">
+        <div id="mission-statement" className="mb-20 max-w-6xl px-2 md:px-4 lg:px-8 2xl:px-10 mx-auto">
+          <div className="grid items-center gap-6 p-6 md:grid-cols-2">
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold tracking-tight">
+                {missionTitle}
+              </h2>
+              <p className="text-muted-foreground">{missionDescription}</p>
             </div>
-          </Card>
+            <div className="relative h-full w-full overflow-hidden rounded-lg">
+              <Image
+                src={missionImage}
+                alt="Mission illustration"
+                width={600}
+                height={600}
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="max-w-8xl mx-auto">
@@ -108,6 +109,9 @@ export default function BoardPageLandingPage({
               </motion.div>
             ))}
           </div>
+        </div>
+        <div className="mt-8 md:mt-12 lg:mt-16 2xl:mt-20">
+        <FAQSection {...content.landing.faq} />
         </div>
       </div>
       <Footer {...navigation} />
