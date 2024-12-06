@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import type { HeroSection } from "~/types/components";
-import PhotoGallery from "../gallary";
+import PhotoGallery from "./gallary";
 
 export default function Hero({
   title,
@@ -22,14 +22,14 @@ export default function Hero({
       setIsBreathingFire(true);
       setTimeout(() => {
         setIsBreathingFire(false);
-      }, 2500); // 1.5 seconds of animation
+      }, 2500); // 2.5 seconds of animation
     };
 
     // Initial fire breath
     startAnimation();
 
     // Set up interval for repeated animations
-    const interval = setInterval(startAnimation, 10500); // 2.5s animation + 4s pause
+    const interval = setInterval(startAnimation, 6500); // 2.5s animation + 4s pause
 
     return () => clearInterval(interval);
   }, []);
@@ -49,14 +49,6 @@ export default function Hero({
           ]}
           duration={2000}
         />
-
-        {/* <Image
-          src="/landing/ehsBackground.png"
-          alt="Emerald High School"
-          fill
-          className="rounded-3xl object-cover"
-          priority
-        /> */}
         <div className="from-background via-background/95 to-background/90 absolute inset-0 bg-gradient-to-t" />
       </div>
       <div className="container relative mx-auto max-w-3xl px-4 md:px-6">

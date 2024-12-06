@@ -58,10 +58,10 @@
       ]
     },
     "gallary": [
-      {"imageSrc": "/ehsBackground.png"},
-      {"imageSrc": "/placeholder.svg?height=400&width=400"},
-      {"imageSrc": "/placeholder.svg?height=400&width=400"},
-      {"imageSrc": "/placeholder.svg?height=400&width=400"}
+      { "imageSrc": "/ehsBackground.png" },
+      { "imageSrc": "/placeholder.svg?height=400&width=400" },
+      { "imageSrc": "/placeholder.svg?height=400&width=400" },
+      { "imageSrc": "/placeholder.svg?height=400&width=400" }
     ],
     "cta": {
       "title": "Ready to Join Our Team?",
@@ -77,10 +77,20 @@
     "title": "The Aero Advantage",
     "description": "Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap",
     "priceText": "For only $450, train your kid to become an Aeruant Debater",
-    "locationSection": {
-      "title": "Location & Dates",
-      "imageSrc": "/placeholder.svg?height=300&width=500"
-    },
+    "locationSection": [
+      {
+        "location": "Location & Dates",
+        "date": "/placeholder.svg?height=300&width=500"
+      },
+      {
+        "location": "Location & Dates",
+        "date": "/placeholder.svg?height=300&width=500"
+      },
+      {
+        "location": "Location & Dates",
+        "date": "/placeholder.svg?height=300&width=500"
+      }
+    ],
     "teamTitle": "Our Team",
     "teamMembers": [
       {

@@ -4,8 +4,9 @@ import Navbar from "~/components/navbar";
 import Footer from "~/components/footer";
 import navigation from "~/navigation.json";
 import { type PageProps, usePullContent } from "~/utils/pageUtils";
-import PhotoGallery from "~/components/gallary";
+import PhotoGallery from "~/components/landing/gallary";
 import Link from "next/link";
+import LocationDates from "~/components/aeroAdvantage/locationsAndDates";
 
 export default function AEROPage({ adminContent, adminError }: PageProps) {
   const pullContent = usePullContent(); // Unconditionally call the hook
@@ -44,7 +45,7 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
     <>
       <Navbar {...navigation.navigation} />
       <div className="container mx-auto max-w-6xl px-4 py-12">
-        <section className="mb-16 space-y-8">
+        <section className="mb-8 space-y-8 md:mb-12">
           <h1 className="text-center text-4xl font-bold text-darkGreen md:text-5xl">
             {title}
           </h1>
@@ -56,13 +57,13 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
               </p>
               <div className="flex justify-center md:block">
                 <Link href="/" className="mx-auto md:mx-0">
-                  <Button className="mt-6 rounded-full bg-darkGreen px-8 py-6 text-lg text-white hover:bg-darkGreen/90">
+                  <Button className="rounded-full bg-darkGreen px-8 py-6 text-lg text-white hover:bg-darkGreen/90">
                     Sign up now
                   </Button>
                 </Link>
               </div>
             </div>
-            <div className="mx-auto h-[300px] w-[500px] rounded-lg bg-gray-100 p-8 md:mx-0">
+            <div className="mx-auto h-[350px] w-[400px] rounded-lg bg-gray-100 p-8 md:mx-0 lg:h-[400px] lg:w-[550px]">
               <PhotoGallery
                 photos={[
                   { imageSrc: "/landing/ehsBackground.png" },
@@ -71,22 +72,33 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
                 ]}
                 duration={2000}
               />
-
-              {/* <Image
-                src={locationSection.imageSrc}
-                alt="Program location"
-                width={500}
-                height={300}
-                className="w-full rounded-lg"
-              /> */}
             </div>
           </div>
         </section>
 
-        <section id="location and dates" className="space-y-8">
+        <section id="location and dates" className="mb-8 space-y-8 md:mb-12">
           <h2 className="text-3xl font-bold text-darkBlue">
             {locationSection.title}
           </h2>
+          <LocationDates
+            items={[
+              {
+                location: "Emerald High School",
+                date: "07/09/2024",
+                time: "4:00 PM"
+              },
+              {
+                location: "Emerald High School",
+                date: "07/09/2024",
+                time: "4:00 PM"
+              },
+              {
+                location: "Emerald High School",
+                date: "07/09/2024",
+                time: "4:00 PM"
+              },
+            ]}
+          />
         </section>
 
         <section className="space-y-8">
