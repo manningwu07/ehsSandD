@@ -7,6 +7,26 @@ import WhyJoin from "~/components/landing/WhyJoin";
 import WhatYouGet from "~/components/landing/WhatYouGet";
 import { type PageProps, usePullContent } from "~/utils/pageUtils";
 import navigation from "~/navigation.json";
+import FAQSection from "~/components/faq";
+
+
+const FAQData = [
+  {
+    question: "What types of resources do you offer for AP students?",
+    answer:
+      "We offer a wide range of resources for AP students, including study notes, practice exams, and helpful tips. Our resources are designed to help students prepare for AP exams and achieve their academic goals. Whether you're a first-time AP student or a seasoned AP student, we have something for you.",
+  },
+  {
+    question: "Who creates the resources?",
+    answer:
+      "People from all over the world have contributed to our resource library. We welcome contributions from AP students like you! Whether you have study notes, practice exams, or helpful tips to share, you can submit your content to be reviewed and added to our resource library. Join us in building a community-driven platform for AP exam preparation.",
+  },
+  {
+    question: "How can I contribute?",
+    answer:
+      "We welcome contributions from AP students like you! Whether you have study notes, practice exams, or helpful tips to share, you can submit your content to be reviewed and added to our resource library. Join us in building a community-driven platform for AP exam preparation.",
+  },
+];
 
 export default function LandingPage({ adminContent, adminError }: PageProps) {
   const pullContent = usePullContent(); // Unconditionally call the hook
@@ -45,6 +65,7 @@ export default function LandingPage({ adminContent, adminError }: PageProps) {
         <WhatYouGet {...content.landing.whatYouGet} />
         <Testimonials {...content.landing.testimonials} />
         <CTA {...content.landing.cta} />
+        <FAQSection title={"FAQ"} subtitle={"Need help? We got you!"} faqData={FAQData} />
       </main>
       <Footer {...navigation} />
     </div>

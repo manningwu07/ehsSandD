@@ -75,11 +75,11 @@ function Accolades({ awards }: AccoladesProps) {
       if (currentScroll >= maxScroll) {
         container.scrollLeft = 0;
       } else {
-        container.scrollLeft += 1;
+        container.scrollLeft += 2;
       }
     };
 
-    const intervalId = setInterval(scroll, 20);
+    const intervalId = setInterval(scroll, 18);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -89,7 +89,7 @@ function Accolades({ awards }: AccoladesProps) {
       <div className="mx-auto">
         <div
           ref={containerRef}
-          className="flex gap-6 overflow-x-hidden whitespace-nowrap pb-6"
+          className="flex overflow-x-hidden whitespace-nowrap pb-6"
           style={{
             maskImage:
               "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
@@ -98,7 +98,7 @@ function Accolades({ awards }: AccoladesProps) {
           }}
         >
           {/* Double the stories array to create a seamless loop */}
-          {[...awards, ...awards].map((award, index) => (
+          {[...awards, ...awards, ...awards, ...awards].map((award, index) => (
           <span
             key={index}
             className="inline-block py-2 font-bold text-darkBlue text-xl"
