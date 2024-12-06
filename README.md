@@ -1,3 +1,3 @@
-# AstroGaels Website Club
+# Emerald High School Website Club
 
-Welcome to the official repository for the **AstroGaels Website**. AstroGaels is a student-run astronomy club at Dublin High School, dedicated to promoting the exploration and understanding of astronomy through various activities, resources, and events. This repository contains the code and assets used to maintain the club's website, which serves as a hub for information, event updates, and resources for club members and the public.
+Welcome to the official repository for the **Emerald High School Website**. 
