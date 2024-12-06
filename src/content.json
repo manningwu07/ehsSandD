@@ -9,6 +9,12 @@
     }
   },
   "landing": {
+    "gallary": [
+      { "imageSrc": "/ehsBackground.png" },
+      { "imageSrc": "/placeholder.svg?height=400&width=400" },
+      { "imageSrc": "/placeholder.svg?height=400&width=400" },
+      { "imageSrc": "/placeholder.svg?height=400&width=400" }
+    ],
     "whyJoin": {
       "title": "Why Join Speech & Debate?",
       "reason": "Speech & Debate is a team sport that helps you develop your public speaking and critical thinking skills.",
@@ -57,12 +63,6 @@
         }
       ]
     },
-    "gallary": [
-      { "imageSrc": "/ehsBackground.png" },
-      { "imageSrc": "/placeholder.svg?height=400&width=400" },
-      { "imageSrc": "/placeholder.svg?height=400&width=400" },
-      { "imageSrc": "/placeholder.svg?height=400&width=400" }
-    ],
     "cta": {
       "title": "Ready to Join Our Team?",
       "description": "Take the first step towards mastering public speaking and critical thinking.",
@@ -71,26 +71,67 @@
         "href": "/apply"
       },
       "imageSrc": "/placeholder.svg?height=400&width=400"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Have a question? We've got answers.",
+      "faqData": [
+        {
+          "question": "What is Debate?",
+          "answer": "Debate is a team sport that helps you develop your public speaking and critical thinking skills."
+        },
+        {
+          "question": "What is Debate?",
+          "answer": "Debate is a team sport that helps you develop your public speaking and critical thinking skills."
+        },
+        {
+          "question": "What is Debate?",
+          "answer": "Debate is a team sport that helps you develop your public speaking and critical thinking skills."
+        },
+        {
+          "question": "What is Debate?",
+          "answer": "Debate is a team sport that helps you develop your public speaking and critical thinking skills."
+        },
+        {
+          "question": "What is Debate?",
+          "answer": "Debate is a team sport that helps you develop your public speaking and critical thinking skills."
+        },
+        {
+          "question": "What is Debate?",
+          "answer": "Debate is a team sport that helps you develop your public speaking and critical thinking skills."
+        }
+      ]
     }
   },
   "aeroAdvantage": {
     "title": "The Aero Advantage",
     "description": "Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap Yap yap",
     "priceText": "For only $450, train your kid to become an Aeruant Debater",
-    "locationSection": [
-      {
-        "location": "Location & Dates",
-        "date": "/placeholder.svg?height=300&width=500"
-      },
-      {
-        "location": "Location & Dates",
-        "date": "/placeholder.svg?height=300&width=500"
-      },
-      {
-        "location": "Location & Dates",
-        "date": "/placeholder.svg?height=300&width=500"
-      }
+    "photos": [
+      { "imageSrc": "/placeholder.svg?height=300&width=500" },
+      { "imageSrc": "/placeholder.svg?height=300&width=500" },
+      { "imageSrc": "/placeholder.svg?height=300&width=500" }
     ],
+    "locationAndDatesSection": {
+      "title": "Locations",
+      "locationsAndDates": [
+        {
+          "location": "Emerald High School",
+          "date": "07/09/2024",
+          "time": "4:00 PM"
+        },
+        {
+          "location": "Emerald High School",
+          "date": "07/09/2024",
+          "time": "4:00 PM"
+        },
+        {
+          "location": "Emerald High School",
+          "date": "07/09/2024",
+          "time": "4:00 PM"
+        }
+      ]
+    },
     "teamTitle": "Our Team",
     "teamMembers": [
       {
@@ -104,6 +145,73 @@
         "imageSrc": "/placeholder.svg?height=100&width=100"
       }
     ]
+  },
+  "about": {
+    "mission": {
+      "title": "Our Mission",
+      "description": "Yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap.",
+      "imageSrc": "/about.png"
+    },
+    "board": {
+      "students": [
+        {
+          "name": "ISHAAN GUPTA",
+          "position": "Senior Co-President",
+          "department": "PARLI, SPEECH",
+          "imageSrc": "/about.png"
+        },
+        {
+          "name": "HARVEER SAINI",
+          "position": "Junior Co-President",
+          "department": "PARLI, PF",
+          "imageSrc": "/placeholder.svg"
+        },
+        {
+          "name": "DARIA SPIRINA",
+          "position": "Vice President",
+          "department": "PF",
+          "imageSrc": "/placeholder.svg"
+        },
+        {
+          "name": "HARSHA VAJRALA",
+          "position": "Secretary",
+          "department": "PARLI",
+          "imageSrc": "/placeholder.svg"
+        },
+        {
+          "name": "NIKHILESH SURAVARJJALA",
+          "position": "Treasurer",
+          "department": "PARLI & CONGRESS",
+          "imageSrc": "/placeholder.svg"
+        },
+        {
+          "name": "TARUN RAJESH",
+          "position": "Debate Captain",
+          "department": "PARLI",
+          "imageSrc": "/placeholder.svg"
+        },
+        {
+          "name": "SAHIRA RAJ",
+          "position": "Debate Captain",
+          "department": "PARLI & PF",
+          "imageSrc": "/placeholder.svg"
+        },
+        {
+          "name": "ANDREA YU",
+          "position": "Outreach officer",
+          "department": "PARLI",
+          "imageSrc": "/placeholder.svg"
+        }
+      ],
+      "parents": [
+        {
+          "name": "HIMALI GANDHI",
+          "position": "Parent Advisor",
+          "department": "Debate",
+          "imageSrc": "/placeholder.svg"
+        }
+      ]
+    }
   },
   "students": {
     "upcomingEvents": [

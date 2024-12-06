@@ -37,6 +37,7 @@ export function DeployDialog({ isOpen, setIsOpen, isDeploying, setIsDeploying, d
             components: data.components,
             landing: data.landing,
             aeroAdvantage: data.aeroAdvantage,
+            about: data.about,
             students: data.students,
             parents: data.parents
           },

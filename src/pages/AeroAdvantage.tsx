@@ -36,7 +36,8 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
     title,
     description,
     priceText,
-    locationSection,
+    photos,
+    locationAndDatesSection,
     teamTitle,
     teamMembers,
   } = content.aeroAdvantage;
@@ -65,11 +66,7 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
             </div>
             <div className="mx-auto h-[350px] w-[400px] rounded-lg bg-gray-100 p-8 md:mx-0 lg:h-[400px] lg:w-[550px]">
               <PhotoGallery
-                photos={[
-                  { imageSrc: "/landing/ehsBackground.png" },
-                  { imageSrc: locationSection.imageSrc },
-                  { imageSrc: "/logo.png" },
-                ]}
+                photos={photos}
                 duration={2000}
               />
             </div>
@@ -78,26 +75,10 @@ export default function AEROPage({ adminContent, adminError }: PageProps) {
 
         <section id="location and dates" className="mb-8 space-y-8 md:mb-12">
           <h2 className="text-3xl font-bold text-darkBlue">
-            {locationSection.title}
+            {locationAndDatesSection.title}
           </h2>
           <LocationDates
-            items={[
-              {
-                location: "Emerald High School",
-                date: "07/09/2024",
-                time: "4:00 PM"
-              },
-              {
-                location: "Emerald High School",
-                date: "07/09/2024",
-                time: "4:00 PM"
-              },
-              {
-                location: "Emerald High School",
-                date: "07/09/2024",
-                time: "4:00 PM"
-              },
-            ]}
+            items={locationAndDatesSection.locationsAndDates}
           />
         </section>
 

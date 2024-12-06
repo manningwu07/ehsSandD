@@ -1,6 +1,6 @@
 import { Card, CardContent } from "~/components/ui/card";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface WhyJoinProps {
   title: string;

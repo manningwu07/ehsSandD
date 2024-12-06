@@ -7,14 +7,16 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import type { HeroSection } from "~/types/components";
 import PhotoGallery from "./gallary";
+import type { DataStructure } from "~/utils/dataStructure";
 
 export default function Hero({
-  title,
-  subtitle,
-  description,
-  link,
-  cta,
-}: HeroSection) {
+  hero,
+  gallary,
+}: {
+  hero: HeroSection;
+  gallary: DataStructure["landing"]["gallary"];
+}) {
+  const { title, subtitle, description, link, cta } = hero;
   const [isBreathingFire, setIsBreathingFire] = useState(false);
 
   useEffect(() => {
@@ -42,11 +44,7 @@ export default function Hero({
       {/* School building background */}
       <div className="absolute inset-0 h-full w-full">
         <PhotoGallery
-          photos={[
-            { imageSrc: "/landing/ehsBackground.png" },
-            { imageSrc: "/landing/Homepage.webp" },
-            { imageSrc: "/logo.png" },
-          ]}
+          photos={gallary}
           duration={2000}
         />
         <div className="from-background via-background/95 to-background/90 absolute inset-0 bg-gradient-to-t" />
@@ -95,12 +93,16 @@ export default function Hero({
           <motion.div
             initial={{ scale: 0.95 }}
             animate={{ scale: 1.05 }}
-            transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+            transition={{
+              duration: 0.5,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
             className="flex flex-col justify-center gap-2 min-[400px]:flex-row"
           >
             <Button
               asChild
-              className="bg-darkGreen p-6 text-xl text-white hover:bg-darkGreen/90 hover:underline cursor-pointer hover:scale-105 transition-all duration-200"
+              className="cursor-pointer bg-darkGreen p-6 text-xl text-white transition-all duration-200 hover:scale-105 hover:bg-darkGreen/90 hover:underline"
             >
               <Link href={link}>{cta}</Link>
             </Button>

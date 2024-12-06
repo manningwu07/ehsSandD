@@ -54,6 +54,8 @@ function hasCircularReference(obj: any, seen = new Set()) {
 
 // Function to fetch the entire content document from Firestore and cache it
 export async function fetchFullContent(): Promise<DataStructure | null> {
+  // return initalContent;
+
   try {
     const docRef = doc(db, "ehsSpeechAndDebate", "content");
     const docSnap = await getDoc(docRef);
@@ -92,6 +94,8 @@ export function usePullContent() {
   }, []);
   
   const fetchContent = async (): Promise<DataStructure | null> => {
+    // return initalContent;
+
     // Try to load cached data first
     const cachedData = await getCachedData("fullContent");
     if (cachedData) {

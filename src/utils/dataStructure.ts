@@ -22,6 +22,9 @@ export interface DataStructure {
   };
 
   landing: {
+    gallary: {
+      imageSrc: string; 
+    }[];
     whyJoin: {
       title: string;
       reason: string;
@@ -55,14 +58,29 @@ export interface DataStructure {
       };
       imageSrc: string;
     };
+    faq:{
+      title: string;
+      subtitle: string;
+      faqData: {
+        question: string;
+        answer: string;
+      }[]
+    }
   };
   aeroAdvantage: {
     title: string;
     description: string;
     priceText: string;
-    locationSection: {
-      title: string;
+    photos:{
       imageSrc: string;
+    }[]
+    locationAndDatesSection: {
+      title: string;
+      locationsAndDates:{
+        location: string;
+        date: string;
+        time: string;
+      }[] 
     };
     teamTitle: string;
     teamMembers: {
@@ -71,6 +89,27 @@ export interface DataStructure {
       imageSrc: string;
     }[];
   };
+  about:{
+    mission: {
+      title: string;
+      description: string;
+      imageSrc: string;
+    },
+    board:{
+      students:{
+        name: string;
+        position: string;
+        department: string;
+        imageSrc: string;
+      }[],
+      parents:{
+        name: string;
+        position: string;
+        department: string;
+        imageSrc: string;
+      }[]
+    }
+  }
   students: {
     upcomingEvents: {
       date: string;

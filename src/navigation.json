@@ -2,6 +2,7 @@
     "navigation": {
       "links": [
         {"text": "Aero Advantage", "href": "/AeroAdvantage"},
+        {"text": "About Us", "href": "/about"},
         {"text": "Students", "href": "/students"},
         {"text": "Parents", "href": "/parents"},
         {"text": "Join", "href": "/", "join": true}
